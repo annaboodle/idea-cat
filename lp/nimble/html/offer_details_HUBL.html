@@ -1,1 +1,112 @@
-absolute_url
+{% text "lp__type" label="Type of content", value="Webinar", export_to_template_context=True %}
+{% text "lp__title" label="Offer title", value="Live Product Demo", export_to_template_context=True %}
+{% text "lp__date" label="Webinar date", value="Tuesday, August 7, ", export_to_template_context=True %}
+{% text "lp__time" label="Webinar time", value="3pm ET", export_to_template_context=True %}
+
+{% text "lp__feat" label="Host's introduction", value="Featuring", export_to_template_context=True %}
+
+{% text "lp__hostname" label="Host 1: Name", value="Neville Longbottom", export_to_template_context=True %}
+{% text "lp__hosttitle" label="Host 1: Title", value="VP of Marketing, Ivy LLC", export_to_template_context=True %}
+{% image "lp__hostphoto" label="Host 1: Headshot" src="https://cdn2.hubspot.net/hubfs/3319635/Nimble/IMG_1305.jpg", export_to_template_context=True %}
+
+{% text "lp__hostname2" label="Host 2: Name", value="Hermione Granger", export_to_template_context=True %}
+{% text "lp__hosttitle2" label="Host 2: Title", value="CEO, Lion Enterprises", export_to_template_context=True %}
+{% image "lp__hostphoto2" label="Host 2: Headshot" src="https://cdn2.hubspot.net/hubfs/3319635/Nimble/IMG_3315%20copy.jpg", export_to_template_context=True %}
+
+{% rich_text "lp__description" label="Description of offer", html="<p>Join us this Tuesday to learn a little bit more about our business. Here's what we cover during each session:</p>
+<ul>
+<li>Strongest takeaway from the webinar</li>
+<li>Another benefit for your viewers</li>
+<li>Final selling point</li>
+</ul>
+<p>See you there!</p>", export_to_template_context=True %}
+
+
+
+<div class="lp__top">
+    <span class="lp__type">
+        {{ widget_data.lp__type.value }}
+    </span>
+
+    <div class="social__wrap">
+        <a class="social__icon social__icon--facebook" rel="nofollow" href="http://www.facebook.com/" onclick="popUp=window.open(
+                'http://www.facebook.com/sharer.php?u={{ absolute_url }}?utm_medium=social&amp;utm_source=facebook',
+                'popupwindow',
+                'scrollbars=yes,width=800,height=400');
+            popUp.focus();
+            return false">
+            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+        </a>
+
+        <a class="social__icon social__icon--twitter" rel="nofollow" href="http://twitter.com/" onclick="popUp=window.open(
+                'http://twitter.com/intent/tweet?text={{ content.title }}&amp;url={{ absolute_url }}?utm_medium=social%26utm_source=twitter',
+                'popupwindow',
+                'scrollbars=yes,width=800,height=400');
+            popUp.focus();
+            return false">
+            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+        </a>
+
+        <a class="social__icon social__icon--linkedin" rel="nofollow" href="http://www.linkedin.com/" onclick="popUp=window.open(
+                'http://www.linkedin.com/shareArticle?url={{ absolute_url }}?utm_medium=social&amp;utm_source=linkedin',
+                'popupwindow',
+                'scrollbars=yes,width=800,height=400');
+            popUp.focus();
+            return false">
+            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+        </a>
+
+        <a class="social__icon social__icon--email" rel="nofollow" href="mailto:?subject={{ content.title }}&body={{ absolute_url }}?utm_medium=social&amp;utm_source=email">
+            <i class="fa fa-envelope-square" aria-hidden="true"></i>
+        </a>
+
+    </div>
+</div>
+
+<h1 class="lp__title">
+    {{ widget_data.lp__title.value }}
+</h1>
+
+<p class="lp__datetime">
+    <span class="lp__date">{{ widget_data.lp__date.value }}</span><span class="lp__time">{{ widget_data.lp__time.value }}</span>
+</p>
+
+{% if widget_data.lp__feat.value %}
+<p class="lp__feat">
+    {{ widget_data.lp__feat.value }}
+</p>
+{% endif %}
+
+<div class="lp__host">
+
+	{% if widget_data.lp__hostname.value %}
+    <div class="lp__host-item">
+        <div class="lp__host-photo-wrap">
+            <div class="lp__host-photo" style="background-image: url('{{ widget_data.lp__hostphoto.src }}'">
+	        </div>        
+		</div>
+		<div class="lp__host-details">
+			<p class="lp__host-name">{{ widget_data.lp__hostname.value }}</p>
+			<p class="lp__host-title">{{ widget_data.lp__hosttitle.value }}</p>
+		</div>
+	</div> 
+	{% endif %}
+
+	{% if widget_data.lp__hostname2.value %}
+    <div class="lp__host-item">
+        <div class="lp__host-photo-wrap">
+            <div class="lp__host-photo" style="background-image: url('{{ widget_data.lp__hostphoto2.src }}'">
+	        </div>        
+		</div>
+		<div class="lp__host-details">
+			<p class="lp__host-name">{{ widget_data.lp__hostname2.value }}</p>
+			<p class="lp__host-title">{{ widget_data.lp__hosttitle2.value }}</p>
+		</div>
+	</div> 
+	{% endif %}
+
+</div>
+
+<div class="lp__description">
+	{{ widget_data.lp__description.html }}
+</div>

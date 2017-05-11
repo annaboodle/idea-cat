@@ -1,16 +1,16 @@
 // VARIABLES
-$light-grey: #cccdcd;
-$dark-grey: #6b787c;
-$error-color: #f3654c; // red
-$bg-grey: #f6f7f8;
+$light-grey: #cccdcd; //
+$dark-grey: #6b787c; //
+$error-color: $dark-grey; // 
+$bg-grey: #f6f7f8; // form background
+
+$bullet-color: #ff9d00; // orange
 
 $body-color: #292f33;
 
-$form-submit: $error-color;
+$form-submit: $bullet-color;
 
 $break-mob: 767px;
-
-
 
 $main-font: 'Open Sans', sans-serif;
 $alt-font: 'Roboto', serif;

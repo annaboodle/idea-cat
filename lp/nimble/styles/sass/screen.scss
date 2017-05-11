@@ -13,7 +13,7 @@
 
 // NAV BAR (WITH LOGO)
 .lp__header {
-	border-bottom: 1px solid $light-grey;
+	border-bottom: 1px solid $dark-grey;
 }
 
 .lp__header--inner {
@@ -36,6 +36,35 @@
 // SOCIAL SHARE
 .social__icon {
     text-decoration: none;
+	font-size: 25px;
+	color: $body-color;
+}
+
+$fb-blue: #3b5998;
+$twitter-blue: #00aced;
+$li-blue: #0077B5;
+$mail-red: #d34836;
+
+.social__icon--facebook {
+	&:hover {
+		color: $fb-blue;	
+	}
+}
+
+.social__icon--twitter {
+	&:hover {
+		color: $twitter-blue;	
+	}
+}
+.social__icon--linkedin {
+	&:hover {
+		color: $li-blue;	
+	}
+}
+.social__icon--email {
+	&:hover {
+		color: $mail-red;	
+	}
 }
 
 // FORM 
@@ -46,10 +75,17 @@
     -moz-border-radius: 4px;
     border-radius: 4px;
     padding: 30px 30px 40px 30px;
-    margin: 25px 0 0 0;
+    margin: 0 0;
+
+    @media (max-width: $break-mob) {
+    	padding: 30px 20px 40px 20px;
+	}
 }
 
-
+.lp__body {
+	padding-top: 40px;
+	padding-bottom: 50px;
+}
 
 
 // TYPE OF OFFER (EX: "WEBINAR")
@@ -93,7 +129,7 @@
 
 .lp__description ul {
     list-style-type: none;
-    padding-left: 32px;
+    padding-left: 40px;
     margin: 30px 0;
 }
 
@@ -108,17 +144,18 @@
 }
 
 .lp__description ul li:before {
-    content: "";
+	font-family: FontAwesome;
+	content: "\f00c";
     position: absolute;
-    left: -32px;
+    left: -40px;
     margin-top: 1px;
     height: 20px;
     width: 22px;
     display: block;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-image: url("//cdn2.hubspot.net/hubfs/593396/Images/check.png");
+    line-height: 1;
+    color: $bullet-color;
+    font-size: 25px;
+    display: block;
 }
 
 .lp__description {
@@ -157,7 +194,7 @@
 
 .lp__footer {
     text-align: center;
-    padding: 60px 0 40px 0;
+    padding: 30px 0 40px 0;
 }
 
 .lp__footer .hs-form-required {
@@ -315,7 +352,8 @@
 .lp__datetime {
     font-family: $alt-font;
     font-size: 24px;
-    color: #63bcdd;
+    color: $bullet-color;
+    font-weight: 600;
     text-transform: uppercase;
     padding: 0 0 40px 0;
     margin-bottom: 0;
@@ -324,7 +362,7 @@
 @media (max-width: $break-mob) {
     .lp__datetime {
         text-align: center;
-        padding: 0 0;
+		padding: 0 0 20px 0;
     }
 }
 
@@ -428,10 +466,12 @@
     text-transform: uppercase;
     font-size: 18px;
     margin: 0 0;
+	line-height: 1.5;
 }
 
 .lp__host-title {
     font-size: 16px;
+	line-height: 1.5;
 }
 
 .lp__form--webinar {
@@ -454,11 +494,11 @@
 }
 
 .lp__left {
-    padding: 25px 35px 0 0;
+    padding: 0 35px 0 0;
 }
 
 @media (max-width: $break-mob) {
     .lp__left {
-        padding: 25px 0 0 0;
+        padding: 0 0;
     }
 }
