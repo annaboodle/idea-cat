@@ -3,16 +3,462 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
 @import "compass/reset";
+@import "variables";
+@import "fonts";
+@import "form";
+@import "utility";
 
-body {
-	background: red;
+
+// NAV BAR (WITH LOGO)
+.lp__header {
+	border-bottom: 1px solid $light-grey;
 }
 
-h1 {
-	color: orange;
+.lp__header--inner {
+	// padding: 12px 20px;
 }
 
-h2 {
-	color: grey;
+.hs_cos_wrapper_type_logo {
+	img.hs-image-widget {
+	    max-width: 180px;
+	}
+}
+
+.lp__top {
+	display: flex;
+	align-items: center;
+    justify-content: space-between;
+    padding: 0 0 30px 0;
+}
+
+// SOCIAL SHARE
+.social__icon {
+    text-decoration: none;
+}
+
+// FORM 
+.lp__form {
+    background: $bg-grey;
+    border: 1px solid $dark-grey;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 30px 30px 40px 30px;
+    margin: 25px 0 0 0;
+}
+
+
+
+
+// TYPE OF OFFER (EX: "WEBINAR")
+.lp__type {
+    font-family: $alt-font;
+    font-size: 16px;
+    color: #808285;
+    text-transform: uppercase;
+    padding: 0 0;
+}
+
+// @media (max-width: $break-mob) {
+//     .lp__type {
+//         padding: 30px 0 10px 0;
+//     }
+// }
+
+
+
+.lp__title {
+    padding: 0 0;
+}
+
+@media (max-width: $break-mob) {
+    .lp__title {
+        text-align: center;
+    }
+}
+
+.lp__tagline {
+    font-family: $alt-font;
+    font-size: 28px;
+    padding: 0 0 28px 0
+}
+
+@media (max-width: $break-mob) {
+    .lp__tagline {
+        text-align: center;
+    }
+}
+
+.lp__description ul {
+    list-style-type: none;
+    padding-left: 32px;
+    margin: 30px 0;
+}
+
+.lp__description ul li {
+    position: relative;
+    padding-top: 15px;
+    margin: 0 0;
+}
+
+.lp__description ul li:first-child {
+    padding-top: 0;
+}
+
+.lp__description ul li:before {
+    content: "";
+    position: absolute;
+    left: -32px;
+    margin-top: 1px;
+    height: 20px;
+    width: 22px;
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("//cdn2.hubspot.net/hubfs/593396/Images/check.png");
+}
+
+.lp__description {
+    padding-bottom: 20px;
+}
+
+.lp__form .form-title {
+    display: none;
+}
+
+.lp__img img {
+    padding-top: 104px;
+}
+
+@media (max-width: $break-mob) {
+    .lp__img img {
+        padding-top: 20px;
+    }
+}
+.lp__right {
+    padding: 25px 0 100px 35px;
+}
+
+@media (max-width: $break-mob) {
+    .lp__right {
+        padding: 25px 0 50px 0;
+    }
+    .lp__right form.hs-form .hs_submit {
+        text-align: center;
+    }
+}
+
+.lp__form form.hs-form .hs_submit {
+    text-align: left
+}
+
+.lp__footer {
+    text-align: center;
+    padding: 60px 0 40px 0;
+}
+
+.lp__footer .hs-form-required {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .lp__footer form {
+        max-width: 620px;
+        margin: 0 auto;
+        display: table;
+        width: 100%;
+    }
+    .lp__footer form > div {
+        display: table-cell;
+    }
+    .lp__footer form > div:first-child {
+        width: 73%;
+    }
+    .lp__footer form > div.hs_submit {
+        width: 27%;
+    }
+}
+
+.lp__footer-ty {
+    padding-top: 40px;
+}
+
+.lp__footer-promos {
+    padding: 0 0;
+    margin: 0 0;
+}
+
+@media (max-width: $break-mob) {
+    .lp__footer-promos {
+        padding: 20px 0 0 0;
+    }
+}
+
+.lp__footer-promos li {
+    margin: 0 0;
+    display: inline-block;
+}
+
+.lp__footer-promos li:before {
+    content: "Â·";
+    display: inline-block;
+    font-size: 35px;
+    vertical-align: middle;
+    padding: 0 6px;
+}
+
+.lp__footer-promos li:first-child:before {
+    content: none;
+}
+
+@media (max-width: $break-mob) {
+    .lp__footer-promos li {
+        display: block;
+    }
+    .lp__footer-promos li:before {
+        content: none;
+    }
+}
+
+.lp__footer-li {
+    vertical-align: middle
+}
+
+.lp__footer-headline {
+    font-size: 32px;
+    font-family: $alt-font;
+    text-transform: uppercase;
+    padding: 0 0;
+    margin: 0 0;
+    line-height: 1.5
+}
+
+.lp__footer-bottom {
+    padding: 20px 0 0 0
+}
+
+.lp__footer-bottom a {
+    text-decoration: underline
+}
+
+.lp__footer-bottom * {
+    color: #967c3e;
+    font-size: 14px;
+    font-family: $main-font;
+}
+
+.lp__author {
+    padding: 100px 12px
+}
+
+@media (max-width: $break-mob) {
+    .lp__author {
+        padding: 75px 0
+    }
+}
+
+.lp__author-item {
+    display: flex
+}
+
+.lp__author-item:not(:first-child) {
+    padding-top: 50px
+}
+
+@media (max-width: $break-mob) {
+    .lp__author-item {
+        display: block
+    }
+}
+
+.lp__author-photo {
+    background-image: url("");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 250px;
+    width: 250px
+}
+
+@media (max-width: $break-mob) {
+    .lp__author-photo {
+        margin: 0 auto
+    }
+}
+
+.lp__author-details {
+    padding-left: 60px
+}
+
+@media (max-width: $break-mob) {
+    .lp__author-details {
+        padding-left: 0;
+        padding-top: 20px
+    }
+}
+
+.lp__author-name {
+    font-size: 24px;
+    padding-bottom: 15px;
+    font-family: $alt-font;
+    font-weight: 300
+}
+
+@media (max-width: $break-mob) {
+    .lp__author-name {
+        text-align: center
+    }
+}
+.lp__datetime {
+    font-family: $alt-font;
+    font-size: 24px;
+    color: #63bcdd;
+    text-transform: uppercase;
+    padding: 0 0 40px 0;
+    margin-bottom: 0;
+}
+
+@media (max-width: $break-mob) {
+    .lp__datetime {
+        text-align: center;
+        padding: 0 0;
+    }
+}
+
+@media (max-width: $break-mob) {
+    .lp__date,
+    .lp__time {
+        display: block;
+    }
+}
+
+.lp__feat {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #808285;
+    padding: 0 0 10px 0;
+    font-family: $alt-font;
+    margin-bottom: 0;
+}
+
+@media (max-width: $break-mob) {
+    .lp__feat {
+        text-align: center;
+        padding: 0 0 10px 0;
+    }
+}
+
+.lp__host {
+    display: flex;
+    padding: 0 0 20px 0;
+}
+
+@media (max-width: $break-mob) {
+    .lp__host {
+        flex-direction: column;
+    }
+}
+
+.lp__host-item {
+    display: flex;
+    flex-basis: 0;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.lp__host-item:first-child {
+    padding-right: 10px;
+}
+
+.lp__host-item:not(:first-child) {
+    padding-left: 10px;
+}
+
+@media (max-width: $break-mob) {
+    .lp__host-item {
+        display: block;
+        flex-basis: auto;
+    }
+    .lp__host-item:first-child {
+        padding-right: 0;
+    }
+    .lp__host-item:not(:first-child) {
+        padding-left: 0;
+        padding-top: 15px;
+    }
+}
+
+.lp__host-photo {
+    background-image: url("");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 80px;
+    width: 80px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+}
+
+@media (max-width: $break-mob) {
+    .lp__host-photo {
+        margin: 0 auto;
+    }
+}
+
+.lp__host-details {
+    padding-left: 20px;
+    font-size: 12px;
+}
+
+@media (max-width: $break-mob) {
+    .lp__host-details {
+        text-align: center;
+        padding-top: 10px;
+        padding-left: 0;
+    }
+}
+
+.lp__host-name {
+    font-family: $alt-font;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 0 0;
+}
+
+.lp__host-title {
+    font-size: 16px;
+}
+
+.lp__form--webinar {
+    background: #f6f7f8;
+    border: 1px solid #6b787c;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 30px 30px 40px 30px;
+    margin: 100px 0 0 0;
+}
+
+@media (max-width: $break-mob) {
+    .lp__form--webinar {
+        margin: 0 0;
+    }
+    .lp__form--webinar.lp__form form.hs-form .hs_submit {
+        text-align: center;
+    }
+}
+
+.lp__left {
+    padding: 25px 35px 0 0;
+}
+
+@media (max-width: $break-mob) {
+    .lp__left {
+        padding: 25px 0 0 0;
+    }
 }

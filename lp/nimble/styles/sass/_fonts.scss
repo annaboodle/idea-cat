@@ -1,0 +1,121 @@
+// FONTS
+// @import "variables";
+body {
+    font-size: 16px;
+    font-family: $main-font;
+    color: $body-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5
+h6 {
+    -webkit-margin-before: 0;
+    margin-bottom: .35em;
+}
+
+p {
+    -webkit-margin-before: 0;
+    margin-bottom: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul li,
+blockquote,
+form.hs-form .hs-form-field *,
+form.hs-form .hs-error-msgs * {
+    // font-family: $main-font;
+}
+
+.hs-cta-wrapper .hs-cta-node a,
+form.hs-form .hs_submit input {
+    font-family: $main-font !important;
+    font-weight: 600;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2;
+    font-family: $alt-font;
+}
+
+h1 {
+    font-size: 48px;
+    // font-weight: 600;
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 36px;
+    }
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+@media (max-width: 767px) {
+    h2 {
+        font-size: 27px;
+    }
+}
+
+h3 {
+    font-size: 30px;
+    font-weight: 300;
+}
+
+@media (max-width: 767px) {
+    h3 {
+        font-size: 22.5px;
+    }
+}
+
+h4 {
+    font-size: 20px;
+}
+
+@media (max-width: 767px) {
+    h4 {
+        font-size: 18px;
+    }
+}
+
+h2.section-header {
+    padding-bottom: 40px;
+}
+
+@media (max-width: 767px) {
+    h2.section-header {
+        padding-bottom: 20px;
+    }
+}
+
+p,
+li,
+blockquote {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+strong {
+    font-weight: 600;
+}
+
+i {
+    font-style: italic;
+}
