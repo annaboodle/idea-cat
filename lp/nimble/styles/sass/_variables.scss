@@ -1,16 +1,30 @@
-// VARIABLES
-$light-grey: #cccdcd; //
-$dark-grey: #6b787c; //
-$error-color: $dark-grey; // 
-$bg-grey: #f6f7f8; // form background
+// borders
+$dark-grey-border: #879498; // border around form and under nav
 
-$bullet-color: #ff9d00; // orange
+// backgrounds
+$bg-grey: #f6f7f8; // form background on webinar lp
 
+// error color
+$error-color: #c60000; 
+
+// text colors
+$grey-text: #808285; 
 $body-color: #292f33;
 
-$form-submit: $bullet-color;
+// highlight colors
+$bullet-color: #ff9d00; // orange
+$form-submit: $bullet-color; //orange
 
-$break-mob: 767px;
-
+// fonts
 $main-font: 'Open Sans', sans-serif;
-$alt-font: 'Roboto', serif;
+$alt-font: 'Open Sans', sans-serif;
+//'Roboto', serif;
+
+// social media colors
+$fb-blue: #3b5998;
+$twitter-blue: #00aced;
+$li-blue: #0077B5;
+$mail-red: #d34836;
+
+// breakpoints
+$break-mob: 767px;

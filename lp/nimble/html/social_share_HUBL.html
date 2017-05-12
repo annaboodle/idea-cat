@@ -1,0 +1,33 @@
+<div class="social__wrap">
+    <a class="social__icon social__icon--facebook" rel="nofollow" href="http://www.facebook.com/" onclick="popUp=window.open(
+            'http://www.facebook.com/sharer.php?u={{ absolute_url }}?utm_medium=social&amp;utm_source=facebook',
+            'popupwindow',
+            'scrollbars=yes,width=800,height=400');
+        popUp.focus();
+        return false">
+        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+    </a>
+
+    <a class="social__icon social__icon--twitter" rel="nofollow" href="http://twitter.com/" onclick="popUp=window.open(
+            'http://twitter.com/intent/tweet?text={{ content.title }}&amp;url={{ absolute_url }}?utm_medium=social%26utm_source=twitter',
+            'popupwindow',
+            'scrollbars=yes,width=800,height=400');
+        popUp.focus();
+        return false">
+        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+    </a>
+
+    <a class="social__icon social__icon--linkedin" rel="nofollow" href="http://www.linkedin.com/" onclick="popUp=window.open(
+            'http://www.linkedin.com/shareArticle?url={{ absolute_url }}?utm_medium=social&amp;utm_source=linkedin',
+            'popupwindow',
+            'scrollbars=yes,width=800,height=400');
+        popUp.focus();
+        return false">
+        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+    </a>
+
+    <a class="social__icon social__icon--email" rel="nofollow" href="mailto:?subject={{ content.title }}&body={{ absolute_url }}?utm_medium=social&amp;utm_source=email">
+        <i class="fa fa-envelope-square" aria-hidden="true"></i>
+    </a>
+
+</div>

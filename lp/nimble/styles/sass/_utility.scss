@@ -17,3 +17,9 @@ body {
     margin: 0;
     border-top: none;
 }
+
+.hide-mobile {
+    @media (max-width: $break-mob) {
+    	display: none;
+    }
+}
