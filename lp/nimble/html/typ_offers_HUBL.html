@@ -1,3 +1,5 @@
+{% boolean "offers_show" label='Show "Other Offers" section?', value=True, export_to_template_context=True %}
+
 {% text "typ__offers" label="Introduction to other offers", value="You might also enjoy...", export_to_template_context=True %}
 
 {% text "typCard__type" label="Offer 1: Type", value="Webinar", export_to_template_context=True %}
@@ -15,8 +17,9 @@
 {% image "typCard__photo2" label="Offer 2: Photo" src="https://cdn2.hubspot.net/hubfs/3319635/Nimble/colorful-markers.jpg", export_to_template_context=True %}
 
 
+{% if widget_data.offers_show.value == 'true' %}
 <div class="typ__offer-block">
-    
+
     <div class="page-center">
 
         <p class="typ__offers">
@@ -108,4 +111,4 @@
     </div>
 
 </div>
-
+{% endif %}

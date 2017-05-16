@@ -1,25 +1,22 @@
 // borders
-$dark-grey-border: #879498; // border around form and under nav
-$light-grey-border: #d9ddde;
+$dark-grey-border: #879498; // border around form, form fields, under nav, etc
+$light-grey-border: #cacdce;
 
 // backgrounds
-$bg-grey: #f6f7f8; // form background on webinar lp
+$bg-grey: #f6f7f8; // form background 
 
 // error color
-$error-color: #c60000; 
+$error-color: #fc1111; // red 
 
 // text colors
 $grey-text: #808285; 
 $body-color: #292f33;
 
 // highlight colors
-$bullet-color: #ff9d00; // orange - should change to just $highlight-color
-$form-submit: $bullet-color; //orange
+$highlight-color: #ff9d00; // orange
 
 // fonts
 $main-font: 'Open Sans', sans-serif;
-$alt-font: 'Open Sans', sans-serif;
-//'Roboto', serif;
 
 // social media colors
 $fb-blue: #3b5998;

@@ -30,7 +30,7 @@ ul li,
 blockquote,
 form.hs-form .hs-form-field *,
 form.hs-form .hs-error-msgs * {
-    // font-family: $main-font;
+    font-family: $main-font;
 }
 
 .hs-cta-wrapper .hs-cta-node a,
@@ -46,7 +46,7 @@ h4,
 h5,
 h6 {
     line-height: 1.2;
-    font-family: $alt-font;
+    font-family: $main-font;
 }
 
 h1 {

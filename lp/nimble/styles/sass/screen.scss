@@ -1,9 +1,5 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+@import "compass/css3";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import "compass/reset";
 @import "variables";
 @import "mixins";
@@ -13,45 +9,49 @@
 
 // NAV BAR 
 .lp__header {
-	border-bottom: 1px solid $dark-grey-border;
+	border-bottom: 1px solid $light-grey-border;
+}
+
+.lp__header--inner {
+	padding: 12px 20px 5px 20px;
 }
 
 .hs_cos_wrapper_type_logo {
 	img.hs-image-widget {
-	    max-width: 180px;
+		max-width: 180px;
+		padding: 5px 0;
 	}
 }
 
 .lp__top {
-	display: flex;
-	align-items: center;
-    justify-content: space-between;
-    padding: 0 0 30px 0;
+	@include display-flex;
+	@include align-items(center);
+	@include justify-content(space-between);
+	padding: 0 0 30px 0;
 
-    @media (max-width: $break-mob) {
-    	display: none;
-    }
+	@media (max-width: $break-mob) {
+		display: none;
+	}
 }
-
 
 // PAGE LAYOUT
 .lp__left {
-    padding: 0 35px 0 0;
+	padding: 0 35px 0 0;
 
 	@media (max-width: $break-mob) {
-	    padding: 0 0;
+		padding: 0 0;
 	}
 }
 
 .lp__right {
-    padding: 0 0 0 35px;
+	padding: 0 0 0 35px;
 
 	@media (max-width: $break-mob) {
-	    padding: 25px 0 0 0;
-	    
-	    form.hs-form .hs_submit {
-	        text-align: center;
-	    }
+		padding: 25px 0 0 0;
+		
+		form.hs-form .hs_submit {
+			text-align: center;
+		}
 	}
 }
 
@@ -62,14 +62,15 @@
 
 // SOCIAL SHARE
 .social__wrap {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+	@include display-flex;
+	@include align-items(center);
+	@include justify-content(flex-end);
+	padding: 5px 0;
 }
 
 .social__icon {
-    text-decoration: none;
-    font-size: 32px;
+	text-decoration: none;
+	font-size: 32px;
 	color: $body-color;
 	padding: 0 4px;
 
@@ -103,16 +104,14 @@
 // FORM 
 .lp__form--webinar,
 .lp__form--ebook {
-    background: $bg-grey;
-    border: 1px solid $dark-grey-border;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    padding: 30px 30px 40px 30px;
-    margin: 0 0;
+	background: $bg-grey;
+	border: 1px solid $light-grey-border;
+	@include border-radius(4px, 4px);
+	padding: 30px 30px 40px 30px;
+	margin: 0 0;
 
-    @media (max-width: $break-mob) {
-    	padding: 30px 20px 40px 20px;
+	@media (max-width: $break-mob) {
+		padding: 30px 20px 40px 20px;
 	}
 
 	.form-title {
@@ -120,44 +119,43 @@
 	}
 }
 
-
 // TYPE OF OFFER (EX: "WEBINAR") and "FEATURING"
 .lp__type,
 .lp__feat,
 .typ__offers {
-    font-family: $alt-font;
-    font-size: 16px;
-    color: $grey-text;
-    text-transform: uppercase;
+	font-family: $main-font;
+	font-size: 16px;
+	color: $grey-text;
+	text-transform: uppercase;
 }
 
 .lp__type {
-    padding: 0 0;
+	padding: 0 0;
 }
 
 .lp__feat {
-    padding: 0 0 10px 0;
-    margin-bottom: 0;
+	padding: 0 0 10px 0;
+	margin-bottom: 0;
 
 	@media (max-width: $break-mob) {
-	    text-align: center;
-	    padding: 0 0 10px 0;
+		text-align: center;
+		padding: 0 0 10px 0;
 	}
 }
 
 // TITLE OF OFFER
 .lp__title {
-    padding: 0 0;
+	padding: 0 0;
 
 	@media (max-width: $break-mob) {
-        text-align: center;
+		text-align: center;
 	}
 }
 
 // TAGLINE UNDER OFFER
 .lp__tagline {
-    font-family: $alt-font;
-    font-size: 28px;
+	font-family: $main-font;
+	font-size: 28px;
 	line-height: 1.5;
 
 	@media (max-width: $break-mob) {
@@ -168,42 +166,42 @@
 
 // DESCRIPTION OF OFFER
 .lp__description ul {
-    list-style-type: none;
-    padding-left: 40px;
-    margin: 30px 0;
+	list-style-type: none;
+	padding-left: 40px;
+	margin: 30px 0;
 }
 
 .lp__description ul li {
-    position: relative;
-    padding-top: 15px;
-    margin: 0 0;
+	position: relative;
+	padding-top: 15px;
+	margin: 0 0;
 }
 
 .lp__description ul li:first-child {
-    padding-top: 0;
+	padding-top: 0;
 }
 
 .lp__description ul li:before {
 	font-family: FontAwesome;
 	content: "\f00c";
-    position: absolute;
-    left: -40px;
-    margin-top: 1px;
-    height: 20px;
-    width: 22px;
-    display: block;
-    line-height: 1;
-    color: $bullet-color;
-    font-size: 25px;
-    display: block;
+	position: absolute;
+	left: -40px;
+	margin-top: 1px;
+	height: 20px;
+	width: 22px;
+	display: block;
+	line-height: 1;
+	color: $highlight-color;
+	font-size: 25px;
+	display: block;
 }
 
 .lp__description {
-    padding-bottom: 20px;
+	padding-bottom: 20px;
 }
 
 .lp__form .form-title {
-    display: none;
+	display: none;
 }
 
 // IMG ON EBOOK LP
@@ -223,124 +221,122 @@
 }
 
 .lp__form form.hs-form .hs_submit {
-    text-align: left
+	text-align: left;
 }
 
 .lp__datetime {
-    font-family: $alt-font;
-    font-size: 24px;
-    color: $bullet-color;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 0 0 30px 0;
-    margin-bottom: 0;
+	font-family: $main-font;
+	font-size: 24px;
+	color: $highlight-color;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 0 0 30px 0;
+	margin-bottom: 0;
 
 	@media (max-width: $break-mob) {
-	    text-align: center;
+		text-align: center;
 		padding: 0 0 20px 0;
 	}
 }
 
 @media (max-width: $break-mob) {
-    .lp__date,
-    .lp__time {
-        display: block;
-    }
+	.lp__date,
+	.lp__time {
+		display: block;
+	}
 }
 
 // WEBINAR HOSTS
 .lp__host {
-    display: flex;
-    padding: 0 0 20px 0;
+	@include display-flex;
+	padding: 0 0 20px 0;
 
 	@media (max-width: $break-mob) {
-	    flex-direction: column;
+		@include flex-direction(column);
 	}
 }
 
 .lp__host-item {
-    display: flex;
-    flex-basis: 0;
-    flex-grow: 1;
-    align-items: center;
+	@include display-flex;
+	@include flex-basis(0);
+	@include flex-grow(1);
+	@include align-items(center);
 
 	&:first-child {
-	    padding-right: 10px;
+		padding-right: 10px;
 	}
 
 	&:not(:first-child) {
-	    padding-left: 10px;
+		padding-left: 10px;
 	}
 
 	@media (max-width: $break-mob) {
-        display: block;
-        flex-basis: auto;
+		display: block;
+		@include flex-basis(auto);
 
-	    &:first-child {
-	        padding-right: 0;
-	    }
+		&:first-child {
+			padding-right: 0;
+		}
 
-	    &:not(:first-child) {
-	        padding-left: 0;
-	        padding-top: 15px;
-	    }
+		&:not(:first-child) {
+			padding-left: 0;
+			padding-top: 15px;
+		}
 	}
 }
 
 .lp__host-photo {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    height: 80px;
-    width: 80px;
-    -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-    border-radius: 40px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 80px;
+	width: 80px;
+	@include border-radius(40px, 40px);
 
 	@media (max-width: $break-mob) {
-	    margin: 0 auto;
+		margin: 0 auto;
 	}
 }
 
 .lp__host-details {
-    padding-left: 20px;
-    font-size: 12px;
+	padding-left: 20px;
+	font-size: 12px;
 
 	@media (max-width: $break-mob) {
-	    text-align: center;
-	    padding-top: 10px;
-	    padding-left: 0;
+		text-align: center;
+		padding-top: 10px;
+		padding-left: 0;
 	}
 }
 
 .lp__host-name {
-    font-family: $alt-font;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 18px;
-    margin: 0 0;
+	font-family: $main-font;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 18px;
+	margin: 0 0;
 	line-height: 1.5;
 }
 
 .lp__host-title {
-    font-size: 16px;
+	font-size: 16px;
 	line-height: 1.5;
 }
 
 // FOOTER 
 .lp__footer {
-    text-align: center;
+	text-align: center;
 	padding: 20px 0;
-    width: 100%;
+	width: 100%;
 
 	@media (max-width: $break-mob) {
-	    padding: 20px 0 20px 0;
+		padding: 20px 0 20px 0;
 	}
 }
 
 // TYP
 .lp__header-widget {
-    width: 100% !important;
+	width: 100% !important;
 }
 
 .typ__menu-icon,
@@ -351,26 +347,29 @@
 .typ__menu {
 
 	ul {
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-	    padding: 0 0 0 10px;
+		float: right;
+		padding: 0 0 0 10px;
 
 		&.typ__menu--show {
 			padding: 15px 0;
 			width: 100%;
-			flex-basis: 0;
-			flex-grow: 1;
-			flex-direction: column;
+			@include flex-basis(0);
+			@include flex-grow(1);
+			@include flex-direction(column);
 
 			@media (max-width: $break-mob) {
-				display: flex;
+				display: -webkit-flex !important;
+				display: flex !important;
 			}
 		}
 
 		@media (max-width: $break-mob) {
-			display: none;
+			display: none !important;
 			padding: 0 0;
+		}
+
+		li {
+			text-align: center;
 		}
 	}
 
@@ -382,8 +381,9 @@
 		text-transform: uppercase;
 		color: $body-color;
 		display: inline-block;
+		text-align: center;
 		&:hover {
-			color: $bullet-color;
+			color: $highlight-color;
 		}
 	}
 }
@@ -392,8 +392,8 @@
 	display: none; 
 
 	@media (max-width: $break-mob) {
-        min-height: 0 !important;
-        display: inline-block;
+		min-height: 0 !important;
+		display: inline-block;
 
 		.typ__menu-icon-lines-wrap {
 			position: absolute;
@@ -402,9 +402,9 @@
 			padding: 15px;
 		}
 
-	    .typ__menu-icon-lines {
-			border-bottom: 16px double $bullet-color;
-			border-top: 5px solid $bullet-color;
+		.typ__menu-icon-lines {
+			border-bottom: 16px double $highlight-color;
+			border-top: 5px solid $highlight-color;
 			content: "";
 			height: 5px;
 			width: 40px;
@@ -412,7 +412,7 @@
 			margin: 0px;
 			padding: 3px;
 			
-	    }
+		}
 	}
 }    
 
@@ -422,14 +422,14 @@
 }
 
 .typ__cta-wrap {
-    padding: 20px 0 50px 0;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
+	padding: 20px 0 50px 0;
+	@include display-flex;
+	@include justify-content(center);
+	@include align-items(stretch);
 
 	@media (max-width: $break-mob) {
-	    flex-direction: column;
-        padding: 0 0 20px 0;
+		@include flex-direction(column);
+		padding: 0 0 20px 0;
 	}
 }
 
@@ -437,10 +437,10 @@
 	margin: 0 10px;
 
 	&:first-child {
-	    @include button($form-submit, $form-submit, #fff);
+		@include button($highlight-color, $highlight-color, #fff);
 	}
 	&:not(:first-child) {
-	    @include button(#fff, $form-submit, $form-submit);
+		@include button(#fff, $highlight-color, $highlight-color);
 	}
 
 	@media (max-width: $break-mob) {
@@ -449,13 +449,13 @@
 }
 
 .typ__social {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-    padding: 20px 0;
+	@include display-flex;
+	@include justify-content(center);
+	@include align-items(center);
+	padding: 20px 0;
 
 	@media (max-width: $break-mob) {
-	    flex-direction: column;
+		@include flex-direction(column);
 	}
 }
 
@@ -471,19 +471,20 @@
 }
 
 .typ__offers {
-    margin: 0 0 10px 0;
+	margin: 0 0 10px 0;
 	color: $body-color;
 }
 
 .typ-card {
 	text-decoration: none;
-    padding: 0 0 30px 0;
-    flex-basis: 0;
-    flex-grow: 1;
-    margin: 10px;
-    background: #fff;
-    border-radius: 4px;
+	padding: 0 0 30px 0;
+	@include flex-basis(0);
+	@include flex-grow(1);
+	margin: 10px;
+	background: #fff;
+	@include border-radius(4px, 4px);
 	border: 1px solid $light-grey-border;
+	max-width: 450px;
 
 	@media (max-width: $break-mob) {
 		&:not(:first-child) {
@@ -494,31 +495,32 @@
 }
 
 .typ-card__wrap {
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
+	@include display-flex;
+	@include justify-content(center);
+	@include align-items(flex-start);
 	padding: 20px 0;
 
 	@media (max-width: $break-mob) {
-	    flex-direction: column;
+		@include flex-direction(column);
+
 	}
 }
 
 .typ-card__photo {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    width: 100%;
-    height: 150px;
-    position: relative;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 100%;
+	height: 150px;
+	position: relative;
 }
 
 .typ-card__no-photo {
 	position: relative;
-    height: 15px;
+	height: 15px;
 
-    .typ-card__type {
-	    left: 0px;
+	.typ-card__type {
+		left: 0px;
 	}
 }
 
@@ -528,19 +530,19 @@
 }
 
 .typ-card__type {
-    text-transform: uppercase;
-    line-height: 1.3;
-    background: $bullet-color;
-    padding: 4px 15px;
-    color: #fff;
-    position: absolute;
-    top: -13.5px;
-    left: 20px;
+	text-transform: uppercase;
+	line-height: 1.3;
+	background: $highlight-color;
+	padding: 4px 15px;
+	color: #fff;
+	position: absolute;
+	top: -13.5px;
+	left: 20px;
 }
 
 .typ-card__title {
 	font-size: 18px;
-    margin: 0 0 10px 0;
+	margin: 0 0 10px 0;
 }
 
 .typ-card__desc {
@@ -557,154 +559,7 @@
 }
 
 .typ-card__btn {
-    @include button(#fff, $form-submit, $form-submit);
-    display: inline-block;
+	@include button(#fff, $highlight-color, $highlight-color);
+	display: inline-block;
 }
-
-
-
-
-///// uh oh
-// .feature-card.promo-card {
-//     border: 1px solid #cccdcd;
-//     padding: 33px 25px 38px;
-//     text-align: center;
-//     align-items: center
-// }
-// .promo-card--photo .feature-card {
-//     padding: 0 0 38px 0;
-//     text-align: left;
-//     align-items: flex-start
-// }
-// .promo-card--photo .promo-card .feature-card__title:after {
-//     margin: 0
-// }
-// .promo-card--photo .promo__content,
-// .promo-card--photo .promo-card__cta {
-//     padding-left: 20px;
-//     padding-right: 20px
-// }
-// .promo-card--no-header .feature-card {
-//     padding: 28px 25px 38px
-// }
-// @media (min-width: 768px) {
-//     .promo-card--one-card .promo-card__photo-type {
-//         left: 0;
-//         top: 20px;
-//         bottom: auto
-//     }
-//     .promo-card--one-card .feature-card {
-//         flex-direction: row;
-//         padding: 0 0 0 0
-//     }
-//     .promo-card--one-card .feature-card .promo-card__photo {
-//         margin-bottom: 0;
-//         height: 100%;
-//         flex-grow: 1;
-//         flex-basis: 0
-//     }
-//     .promo__wrapper--one {
-//         padding: 20px 20px 35px;
-//         flex-grow: 1.3;
-//         flex-basis: 0
-//     }
-// }
-// .promo-card__photo {
-//     background-image: url("http://justcuteanimals.com/wp-content/uploads/2013/02/cute-animals-horses-sweaters-jumpers-scotland-pics.jpg");
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-position: center center;
-//     width: 100%;
-//     height: 120px;
-//     margin-bottom: 10px;
-//     position: relative
-// }
-// .promo-card__photo-type {
-//     font-family: "Montserrat", Helvetica, sans-serif;
-//     font-weight: 300;
-//     font-size: 15px;
-//     text-transform: uppercase;
-//     line-height: 1.3;
-//     background: #fec541;
-//     padding: 4px 15px;
-//     color: #fff;
-//     position: absolute;
-//     bottom: -13.5px;
-//     left: 20px
-// }
-// .promo-card__cta,
-// .feature-card__cta {
-//     padding-top: 20px
-// }
-// .promo-card .promo-card__btn,
-// .promo-card .cta_button,
-// .feature-card .feature-card__btn {
-//     font-size: 16px;
-//     line-height: 1.5;
-//     border-radius: 6px;
-//     background: #fff;
-//     text-transform: uppercase;
-//     border: 2px solid #f3654c;
-//     text-decoration: none;
-//     font-weight: 600;
-//     display: inline-block;
-//     color: #f3654c;
-//     -webkit-transition: .3s all;
-//     -moz-transition: .3s all;
-//     -o-transition: .3s all;
-//     transition: .3s all;
-//     padding: 8px 20px
-// }
-// .promo-card .promo-card__btn:hover,
-// .promo-card .cta_button:hover,
-// .feature-card .feature-card__btn:hover {
-//     color: #fff;
-//     border: 2px solid #f3654c;
-//     background: #f3654c
-// }
-// .promo-card__btn--video:after {
-//     content: "â–¸";
-//     transform: scaleX(1.5);
-//     display: inline-block;
-//     padding-left: 8px
-// }
-// .promo-card__button:hover {
-//     background-color: #f3654c !important;
-//     color: #fff !important
-// }
-// .promo-card__button:hover span {
-//     color: #fff !important
-// }
-// .promo-card__type {
-//     color: #fec541;
-//     text-transform: uppercase;
-//     font-size: 12px;
-//     -webkit-transition: .3s all;
-//     -moz-transition: .3s all;
-//     -o-transition: .3s all;
-//     transition: .3s all;
-//     padding: 5px 0;
-//     display: inline-block;
-//     font-size: 16px;
-//     padding-top: 0
-// }
-// .promo-card__type:hover {
-//     color: #fec541
-// }
-// .promo-card .feature-card__icon-wrap {
-//     border: 1px solid transparent;
-//     background: transparent;
-//     width: 60px;
-//     height: 60px;
-//     border-radius: 4px;
-//     padding: 8px;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     width: 80px;
-//     margin: 0 auto
-// }
-
-
-
 
