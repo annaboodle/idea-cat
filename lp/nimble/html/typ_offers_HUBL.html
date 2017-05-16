@@ -1,82 +1,111 @@
 {% text "typ__offers" label="Introduction to other offers", value="You might also enjoy...", export_to_template_context=True %}
 
-{% text "typ-card__type" label="Offer 1: Type", value="Webinar", export_to_template_context=True %}
-{% text "typ-card__title" label="Offer 1: Title", value="Another exceptional webinar", export_to_template_context=True %}
-{% text "typ-card__desc" label="Offer 1: Description", value="Summarize the content of this offer and its value to your visitors.", export_to_template_context=True %}
-{% text "typ-card__offerUrl" label="Offer 1: URL", value="#", export_to_template_context=True %}
-{% text "typ-card__offerCTA" label="Offer 1: CTA copy", value="Learn More", export_to_template_context=True %}
+{% text "typCard__type" label="Offer 1: Type", value="Webinar", export_to_template_context=True %}
+{% text "typCard__title" label="Offer 1: Title", value="Exceptional Webinar", export_to_template_context=True %}
+{% text "typCard__desc" label="Offer 1: Description", value="Summarize the content of this offer and its value to your visitors.", export_to_template_context=True %}
+{% text "typCard__offerUrl" label="Offer 1: Landing Page URL", value="#", export_to_template_context=True %}
+{% text "typCard__offerCTA" label="Offer 1: CTA copy", value="Register Now", export_to_template_context=True %}
+{% image "typCard__photo" label="Offer 1: Photo" src="https://cdn2.hubspot.net/hubfs/3319635/Nimble/sticky-notes-to-do-list.jpg", export_to_template_context=True %}
+
+{% text "typCard__type2" label="Offer 2: Type", value="Ebook", export_to_template_context=True %}
+{% text "typCard__title2" label="Offer 2: Title", value="Best Ever Ebook", export_to_template_context=True %}
+{% text "typCard__desc2" label="Offer 2: Description", value="Summarize the content of this offer and its value to your visitors.", export_to_template_context=True %}
+{% text "typCard__offerUrl2" label="Offer 2: Landing Page URL", value="#", export_to_template_context=True %}
+{% text "typCard__offerCTA2" label="Offer 2: CTA copy", value="Learn More", export_to_template_context=True %}
+{% image "typCard__photo2" label="Offer 2: Photo" src="https://cdn2.hubspot.net/hubfs/3319635/Nimble/colorful-markers.jpg", export_to_template_context=True %}
 
 
-{% image "typ-card__photo" label="Offer 1: Photo" src="https://cdn2.hubspot.net/hubfs/3319635/Nimble/IMG_3315%20copy.jpg", export_to_template_context=True %}
+<div class="typ__offer-block">
+    
+    <div class="page-center">
+
+        <p class="typ__offers">
+            {{ widget_data.typ__offers.value }}
+        </p>
+
+        <div class="typ-card__wrap">
+
+            <div class="typ-card">
+
+                <div class="{% if widget_data.typCard__photo.src %}typ-card__photo{% else %}typ-card__no-photo{% endif %}" {% if widget_data.typCard__photo.src %}style="background-image: url('{{ widget_data.typCard__photo.src }}')"{% endif %}>
+
+                    {% if widget_data.typCard__type.value %}
+                    <p class="typ-card__type">
+                        {{ widget_data.typCard__type.value }}
+                    </p>
+                    {% endif %}
+
+                </div>
 
 
+                <div class="typ-card__content">
+
+                    {% if widget_data.typCard__title.value %}
+                    <p class="typ-card__title">
+                        {{ widget_data.typCard__title.value }}
+                    </p>
+                    {% endif %}
+
+                    {% if widget_data.typCard__desc.value %}
+                    <p class="typ-card__desc">
+                        {{ widget_data.typCard__desc.value }}
+                    </p>
+                    {% endif %}
+
+                </div>
+
+                {% if widget_data.typCard__offerCTA.value %}
+                <div class="typ-card__btn-wrap">
+                    <a href="{{ widget_data.typCard__offerUrl.value }}" class="typ-card__btn">
+                        {{ widget_data.typCard__offerCTA.value }}
+                    </a>
+                </div>
+                {% endif %}
+
+            </div>
+
+            <div class="typ-card">
+
+                <div class="{% if widget_data.typCard__photo2.src %}typ-card__photo{% else %}typ-card__no-photo{% endif %}" {% if widget_data.typCard__photo2.src %}style="background-image: url('{{ widget_data.typCard__photo2.src }}')"{% endif %}>
+
+                    {% if widget_data.typCard__type.value %}
+                    <p class="typ-card__type">
+                        {{ widget_data.typCard__type2.value }}
+                    </p>
+                    {% endif %}
+
+                </div>
 
 
+                <div class="typ-card__content">
 
-<p class="typ__offers">
-    {{ widget_data.lp__type.value }}
-</p>
+                    {% if widget_data.typCard__title2.value %}
+                    <p class="typ-card__title">
+                        {{ widget_data.typCard__title2.value }}
+                    </p>
+                    {% endif %}
 
+                    {% if widget_data.typCard__desc2.value %}
+                    <p class="typ-card__desc">
+                        {{ widget_data.typCard__desc2.value }}
+                    </p>
+                    {% endif %}
 
-<div class="typ-card__wrap">
+                </div>
 
-    <div class="typ-card">
+                {% if widget_data.typCard__offerCTA2.value %}
+                <div class="typ-card__btn-wrap">
+                    <a href="{{ widget_data.typCard__offerUrl.value }}" class="typ-card__btn">
+                        {{ widget_data.typCard__offerCTA2.value }}
+                    </a>
+                </div>
+                {% endif %}
 
-        <div class="typ-card__photo" style="background-image: url('{{ widget_data.typ-card__photo.src }}')">
-
-            <p class="typ-card__type">
-                {{ widget_data.typ-card__type.value }}
-            </p>
+            </div>
 
         </div>
-
-
-        <div class="typ-card__content">
-
-            <p class="typ-card__title">
-                {{ widget_data.typ-card__title.value }}
-            </p>
-
-            <p class="typ-card__desc">
-                {{ widget_data.typ-card__desc.value }}
-            </p>
-        </div>
-
-        <a href="{{ widget_data.typ-card__offerUrl.value }}" class="typ-card__btn">
-            {{ widget_data.typ-card__offerCTA.value }}
-        </a>
-
-    </div>
-
-    <div class="typ-card">
-
-        <div class="typ-card__photo" style="background-image: url('{{ widget_data.typ-card__photo2.src }}')">
-
-            <p class="typ-card__type">
-                {{ widget_data.typ-card__type2.value }}
-            </p>
-
-        </div>
-
-
-        <div class="typ-card__content">
-
-            <p class="typ-card__title">
-                {{ widget_data.typ-card__title2.value }}
-            </p>
-
-            <p class="typ-card__desc">
-                {{ widget_data.typ-card__desc2.value }}
-            </p>
-        </div>
-
-        <a href="{{ widget_data.typ-card__offerUrl.value }}" class="typ-card__btn">
-            {{ widget_data.typ-card__offerCTA2.value }}
-        </a>
 
     </div>
 
 </div>
-
-
 

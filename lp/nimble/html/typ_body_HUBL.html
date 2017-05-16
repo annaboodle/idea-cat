@@ -8,12 +8,15 @@
 {% text "lp__ctaCopy2" label="Copy on first CTA", value="Return to the main site", export_to_template_context=True %}
 {% text "lp__ctaUrl2" label="Link to your content", value="/", export_to_template_context=True %}
 
-{% text "typ__social-tag" label="Label for social sharing section", value="Share with your network:", export_to_template_context=True %}
+{% text "typ__socialTag" label="Label for social sharing section", value="Share with your network:", export_to_template_context=True %}
+
+{% boolean "social_show" label='Show social sharing?', value=True, export_to_template_context=True %}
+{% text "lp__socialUrl" label="URL of landing page to share on social", value="/your-landing-page", export_to_template_context=True %}
 
 
 <div class="typ__hero">
     <h1 class="lp__title">
-        {{ widget_data.lp__type.value }}
+        {{ widget_data.lp__title.value }}
     </h1>
 
     <p class="lp__tagline">
@@ -36,11 +39,12 @@
 
     </div>
 
+    {% if widget_data.social_show.value == 'true' %}
     <div class="typ__social">
-        <p class="typ__social-tag">{{ widget_data.typ__social-tag.value }} </p>
+        <p class="typ__social-tag">{{ widget_data.typ__socialTag.value }} </p>
         <div class="social__wrap">
             <a class="social__icon social__icon--facebook" rel="nofollow" href="http://www.facebook.com/" onclick="popUp=window.open(
-                    'http://www.facebook.com/sharer.php?u={{ absolute_url }}?utm_medium=social&amp;utm_source=facebook',
+                    'http://www.facebook.com/sharer.php?u={{ widget_data.lp__socialUrl.value }}?utm_medium=social&amp;utm_source=facebook',
                     'popupwindow',
                     'scrollbars=yes,width=800,height=400');
                 popUp.focus();
@@ -49,7 +53,7 @@
             </a>
 
             <a class="social__icon social__icon--twitter" rel="nofollow" href="http://twitter.com/" onclick="popUp=window.open(
-                    'http://twitter.com/intent/tweet?text={{ content.title }}&amp;url={{ absolute_url }}?utm_medium=social%26utm_source=twitter',
+                    'http://twitter.com/intent/tweet?text={{ content.title }}&amp;url={{ widget_data.lp__socialUrl.value }}?utm_medium=social%26utm_source=twitter',
                     'popupwindow',
                     'scrollbars=yes,width=800,height=400');
                 popUp.focus();
@@ -58,7 +62,7 @@
             </a>
 
             <a class="social__icon social__icon--linkedin" rel="nofollow" href="http://www.linkedin.com/" onclick="popUp=window.open(
-                    'http://www.linkedin.com/shareArticle?url={{ absolute_url }}?utm_medium=social&amp;utm_source=linkedin',
+                    'http://www.linkedin.com/shareArticle?url={{ widget_data.lp__socialUrl.value }}?utm_medium=social&amp;utm_source=linkedin',
                     'popupwindow',
                     'scrollbars=yes,width=800,height=400');
                 popUp.focus();
@@ -66,11 +70,12 @@
                 <i class="fa fa-linkedin-square" aria-hidden="true"></i>
             </a>
 
-            <a class="social__icon social__icon--email" rel="nofollow" href="mailto:?subject={{ content.title }}&body={{ absolute_url }}?utm_medium=social&amp;utm_source=email">
+            <a class="social__icon social__icon--email" rel="nofollow" href="mailto:?subject={{ content.title }}&body={{ widget_data.lp__socialUrl.value }}?utm_medium=social&amp;utm_source=email">
                 <i class="fa fa-envelope-square" aria-hidden="true"></i>
             </a>
 
         </div>
     </div>
+    {% endif %}
 
 </div>

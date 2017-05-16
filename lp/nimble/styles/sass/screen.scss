@@ -72,6 +72,10 @@
     font-size: 32px;
 	color: $body-color;
 	padding: 0 4px;
+
+	@media (max-width: $break-mob) {
+		padding: 7px;
+	}
 }
 
 .social__icon--facebook {
@@ -158,7 +162,7 @@
 
 	@media (max-width: $break-mob) {
 		text-align: center;
-		font-size: 25px;
+		font-size: 22px;
 	}
 }
 
@@ -326,7 +330,7 @@
 // FOOTER 
 .lp__footer {
     text-align: center;
-	padding: 10px 0 20px 0;
+	padding: 20px 0;
     width: 100%;
 
 	@media (max-width: $break-mob) {
@@ -350,6 +354,7 @@
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
+	    padding: 0 0 0 10px;
 
 		&.typ__menu--show {
 			padding: 15px 0;
@@ -365,6 +370,7 @@
 
 		@media (max-width: $break-mob) {
 			display: none;
+			padding: 0 0;
 		}
 	}
 
@@ -412,16 +418,18 @@
 
 .typ__hero {
 	text-align: center;
+	padding: 40px 0 15px 0;
 }
 
 .typ__cta-wrap {
-    padding: 0 0 40px 0;
+    padding: 20px 0 50px 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
 
 	@media (max-width: $break-mob) {
 	    flex-direction: column;
+        padding: 0 0 20px 0;
 	}
 }
 
@@ -455,19 +463,41 @@
 	margin: 0 15px 0 0;
 }
 
-// .typ-offers {
+.typ__offer-block {
+	background: $bg-grey;
+	padding: 30px 0;
+	border-top: 1px solid $light-grey-border;
+	border-bottom: 1px solid $light-grey-border;
+}
 
-// }
+.typ__offers {
+    margin: 0 0 10px 0;
+	color: $body-color;
+}
 
 .typ-card {
 	text-decoration: none;
-	padding: 20px;
+    padding: 0 0 30px 0;
+    flex-basis: 0;
+    flex-grow: 1;
+    margin: 10px;
+    background: #fff;
+    border-radius: 4px;
+	border: 1px solid $light-grey-border;
+
+	@media (max-width: $break-mob) {
+		&:not(:first-child) {
+			margin-top: 30px;
+		}
+	}
+
 }
 
 .typ-card__wrap {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
+	padding: 20px 0;
 
 	@media (max-width: $break-mob) {
 	    flex-direction: column;
@@ -483,8 +513,18 @@
     position: relative;
 }
 
+.typ-card__no-photo {
+	position: relative;
+    height: 15px;
+
+    .typ-card__type {
+	    left: 0px;
+	}
+}
+
 .typ-card__content {
 	margin: 20px 0;
+	padding: 0 20px;
 }
 
 .typ-card__type {
@@ -506,6 +546,14 @@
 .typ-card__desc {
 	font-size: 16px;
 	margin: 0 0;
+}
+
+.typ-card__btn-wrap {
+	padding: 0 20px;
+
+	@media (max-width: $break-mob) {
+		text-align: center;
+	}
 }
 
 .typ-card__btn {
