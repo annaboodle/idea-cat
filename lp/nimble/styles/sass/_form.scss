@@ -69,21 +69,13 @@ form.hs-form .hs_submit .actions {
 }
 
 form.hs-form .hs_submit input {
-    background: $form-submit;
-    color: #fff;
-    text-transform: uppercase;
-    border-radius: 4px;
-    transition: all .4s ease;
-    -moz-transition: all .4s ease;
-    -webkit-transition: all .4s ease;
-    -o-transition: all .4s ease;
-    -webkit-appearance: none;
-    margin-top: 15px;
+    @include button($form-submit, $form-submit, #fff);
+    margin-top: 15px; 
 }
 
-form.hs-form .hs_submit input:hover {
-    opacity: .8;
-}
+// form.hs-form .hs_submit input:hover {
+//     opacity: .8;
+// }
 
 form.hs-form .hs-form-field {
     padding: 10px 0;

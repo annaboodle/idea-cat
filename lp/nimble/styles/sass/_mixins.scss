@@ -1,0 +1,22 @@
+@mixin button($background, $border, $color) {
+    background: $background;
+    color: $color;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    -webkit-appearance: none;
+    font-family: $main-font;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid $border;
+    padding: 15px;
+    cursor: pointer;
+
+    &:hover {
+        background: $color;
+        color: $background;
+    }
+}

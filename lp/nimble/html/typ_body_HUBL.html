@@ -1,0 +1,76 @@
+{% text "lp__title" label="Main header", value="Enjoy your ebook!", export_to_template_context=True %}
+
+{% text "lp__tagline" label="Subheader", value="Thank your visitors for requesting the content offered on your landing page, and explain how they will receive the offer.", export_to_template_context=True %}
+
+{% text "lp__ctaCopy1" label="Copy on first CTA", value="Download your ebook now", export_to_template_context=True %}
+{% text "lp__ctaUrl1" label="Link to your content", value="#", export_to_template_context=True %}
+
+{% text "lp__ctaCopy2" label="Copy on first CTA", value="Return to the main site", export_to_template_context=True %}
+{% text "lp__ctaUrl2" label="Link to your content", value="/", export_to_template_context=True %}
+
+{% text "typ__social-tag" label="Label for social sharing section", value="Share with your network:", export_to_template_context=True %}
+
+
+<div class="typ__hero">
+    <h1 class="lp__title">
+        {{ widget_data.lp__type.value }}
+    </h1>
+
+    <p class="lp__tagline">
+        {{ widget_data.lp__tagline.value }}
+    </p>
+
+    <div class="typ__cta-wrap">
+
+        {% if widget_data.lp__ctaUrl2.value %}
+        <a class="typ__cta" href="{{ widget_data.lp__ctaUrl1.value }}" download>
+            {{ widget_data.lp__ctaCopy1.value }}
+        </a>
+        {% endif %}
+
+        {% if widget_data.lp__ctaUrl2.value %}
+        <a class="typ__cta" href="{{ widget_data.lp__ctaUrl2.value }}">
+            {{ widget_data.lp__ctaCopy2.value }} 
+        </a>
+        {% endif %}
+
+    </div>
+
+    <div class="typ__social">
+        <p class="typ__social-tag">{{ widget_data.typ__social-tag.value }} </p>
+        <div class="social__wrap">
+            <a class="social__icon social__icon--facebook" rel="nofollow" href="http://www.facebook.com/" onclick="popUp=window.open(
+                    'http://www.facebook.com/sharer.php?u={{ absolute_url }}?utm_medium=social&amp;utm_source=facebook',
+                    'popupwindow',
+                    'scrollbars=yes,width=800,height=400');
+                popUp.focus();
+                return false">
+                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+            </a>
+
+            <a class="social__icon social__icon--twitter" rel="nofollow" href="http://twitter.com/" onclick="popUp=window.open(
+                    'http://twitter.com/intent/tweet?text={{ content.title }}&amp;url={{ absolute_url }}?utm_medium=social%26utm_source=twitter',
+                    'popupwindow',
+                    'scrollbars=yes,width=800,height=400');
+                popUp.focus();
+                return false">
+                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+            </a>
+
+            <a class="social__icon social__icon--linkedin" rel="nofollow" href="http://www.linkedin.com/" onclick="popUp=window.open(
+                    'http://www.linkedin.com/shareArticle?url={{ absolute_url }}?utm_medium=social&amp;utm_source=linkedin',
+                    'popupwindow',
+                    'scrollbars=yes,width=800,height=400');
+                popUp.focus();
+                return false">
+                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            </a>
+
+            <a class="social__icon social__icon--email" rel="nofollow" href="mailto:?subject={{ content.title }}&body={{ absolute_url }}?utm_medium=social&amp;utm_source=email">
+                <i class="fa fa-envelope-square" aria-hidden="true"></i>
+            </a>
+
+        </div>
+    </div>
+
+</div>
