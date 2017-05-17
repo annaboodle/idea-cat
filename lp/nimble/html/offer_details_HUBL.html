@@ -1,4 +1,74 @@
-{% text "lp__type" label="Type of content", value="Webinar", export_to_template_context=True %}
+{% image "lp__hostphoto" label="Host 1: Headshot" src="https://cdn2.hubspot.net/hubfs/3319635/Nimble/IMG_1305.jpg", export_to_template_context=True %}
+{% image "lp__hostphoto2" label="Host 2: Headshot" src="https://cdn2.hubspot.net/hubfs/3319635/Nimble/IMG_3315%20copy.jpg", export_to_template_context=True %}
+{% choice "hosts_num" label='How many hosts should be shown?', value='2', choices='0, 1, 2', export_to_template_context=True %}
+
+
+<div class="lp__top hide-mobile">
+    <span class="lp__type">
+        {% text "lp__type" label="Type of content", value="Webinar", no_wrapper=True %}
+    </span>
+</div>
+
+<h1 class="lp__title">
+    {% text "lp__title" label="Offer title", value="Live Product Demo", no_wrapper=True %}
+</h1>
+
+<p class="lp__datetime">
+    <span class="lp__date">
+    	{% text "lp__date" label="Webinar date", value="Tuesday, August 7, ", no_wrapper=True %}
+    </span>
+    <span class="lp__time">
+    	{% text "lp__time" label="Webinar time", value="3pm ET", no_wrapper=True %}
+    </span>
+</p>
+
+<p class="lp__feat {% if widget_data.hosts_num.value == 0 %}display-none{% endif %}">
+    {% text "lp__feat" label="Host's introduction", value="Featuring", no_wrapper=True %}
+</p>
+
+<div class="lp__host {% if widget_data.hosts_num.value == 0 %}display-none{% endif %}">
+
+    <div class="lp__host-item">
+        <div class="lp__host-photo-wrap">
+            <div class="lp__host-photo" style="background-image: url('{{ widget_data.lp__hostphoto.src }}'">
+	        </div>        
+		</div>
+		<div class="lp__host-details">
+			<p class="lp__host-name">{% text "lp__hostname" label="Host 1: Name", value="Neville Longbottom", no_wrapper=True %}</p>
+			<p class="lp__host-title">{% text "lp__hosttitle" label="Host 1: Title", value="VP of Marketing, Ivy LLC", no_wrapper=True %}</p>
+		</div>
+	</div> 
+
+    <div class="lp__host-item {% if widget_data.hosts_num.value == 1 %}display-none{% endif %}">
+        <div class="lp__host-photo-wrap">
+            <div class="lp__host-photo" style="background-image: url('{{ widget_data.lp__hostphoto2.src }}'">
+	        </div>        
+		</div>
+		<div class="lp__host-details">
+			<p class="lp__host-name">{% text "lp__hostname2" label="Host 2: Name", value="Hermione Granger", no_wrapper=True %}</p>
+			<p class="lp__host-title">{% text "lp__hosttitle2" label="Host 2: Title", value="CEO, Lion Enterprises", no_wrapper=True %}</p>
+		</div>
+	</div> 
+
+</div>
+
+<div class="lp__description">
+	{% rich_text "lp__description" label="Description of offer", html="
+		<p>Use a few sentences to describe the purpose and agenda for your upcoming webinar. Make sure to focus on what your visitors will gain by attending. It can be helpful to use bullet points to list the most important topics that you'll be discussing:</p>
+		<ul>
+		<li>The strongest takeaway from the webinar</li>
+		<li>Another question that will be answered during the webinar</li>
+		<li>One final selling point</li>
+		</ul>
+		<p>Consider restating the time and date of the webinar, and tell your visitors you can't wait to see them there!</p>", 
+		no_wrapper=True 
+	%}
+</div>
+
+
+
+
+<!-- {% text "lp__type" label="Type of content", value="Webinar", export_to_template_context=True %}
 {% text "lp__title" label="Offer title", value="Live Product Demo", export_to_template_context=True %}
 {% text "lp__date" label="Webinar date", value="Tuesday, August 7, ", export_to_template_context=True %}
 {% text "lp__time" label="Webinar time", value="3pm ET", export_to_template_context=True %}
@@ -74,4 +144,4 @@
 
 <div class="lp__description">
 	{{ widget_data.lp__description.html }}
-</div>
+</div> -->

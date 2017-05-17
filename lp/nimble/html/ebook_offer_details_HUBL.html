@@ -1,4 +1,31 @@
-{% text "lp__type" label="Type of content", value="Ebook", export_to_template_context=True %}
+<p class="lp__type hide-mobile">
+    {% text "lp__type" label="Type of content", value="Ebook", no_wrapper=True %}
+</p>
+
+<h1 class="lp__title">
+    {% text "lp__title" label="Offer title", value="Your Brand-New Ebook", no_wrapper=True %}
+</h1>
+
+<p class="lp__tagline">
+    {% text "lp__tagline" label="Tagline", value="A tagline allows you to quickly describe how your ebook will benefit your visitors." no_wrapper=True %}
+</p>
+
+<div class="lp__description">
+	{% rich_text "lp__description" label="Description of offer", html="
+		<p>Now use a few more sentences to describe the content of your ebook. Discuss the problems that your visitors are trying to solve, and explain how your content will help them succeed. Add bullet points to list the main takeaways from your offer:</p>
+		<ul>
+		<li>The most compelling benefit of reading your ebook</li>
+		<li>Something specific that your ebook will explain</li>
+		<li>One final selling point</li>
+		</ul>
+		<p>Now, point them to the form below so that they can get their own copy of your most excellent ebook!</p>",
+		no_wrapper=True 
+	%}
+</div>
+
+
+
+<!-- {% text "lp__type" label="Type of content", value="Ebook", export_to_template_context=True %}
 {% text "lp__title" label="Offer title", value="Your Brand-New Ebook", export_to_template_context=True %}
 {% text "lp__tagline" label="Tagline", value="A tagline allows you to quickly describe how your ebook will benefit your visitors.", export_to_template_context=True %}
 
@@ -25,4 +52,4 @@
 
 <div class="lp__description">
 	{{ widget_data.lp__description.html }}
-</div>
+</div> -->

@@ -395,6 +395,11 @@ body {
   }
 }
 
+/* line 26, ../sass/_utility.scss */
+.display-none.display-none {
+  display: none;
+}
+
 /* line 11, ../sass/screen.scss */
 .lp__header {
   border-bottom: 1px solid #cacdce;
@@ -1023,8 +1028,8 @@ body {
   display: flex;
   -webkit-justify-content: center;
   justify-content: center;
-  -webkit-align-items: flex-start;
-  align-items: flex-start;
+  -webkit-align-items: stretch;
+  align-items: stretch;
   padding: 20px 0;
 }
 @media (max-width: 767px) {

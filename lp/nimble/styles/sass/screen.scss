@@ -497,7 +497,7 @@
 .typ-card__wrap {
 	@include display-flex;
 	@include justify-content(center);
-	@include align-items(flex-start);
+	@include align-items(stretch);
 	padding: 20px 0;
 
 	@media (max-width: $break-mob) {

@@ -1,5 +1,91 @@
 {% boolean "offers_show" label='Show "Other Offers" section?', value=True, export_to_template_context=True %}
 
+{% image "typCard__photo" label="Offer 1: Photo" src="https://cdn2.hubspot.net/hubfs/3319635/Nimble/sticky-notes-to-do-list.jpg", export_to_template_context=True %}
+
+{% image "typCard__photo2" label="Offer 2: Photo" src="https://cdn2.hubspot.net/hubfs/3319635/Nimble/colorful-markers.jpg", export_to_template_context=True %}
+
+
+<div class="typ__offer-block {% if widget_data.offers_show.value == 'false' %}display-none{% endif %}">
+
+    <div class="page-center">
+
+        <p class="typ__offers">
+            {% text "typ__offers" label="Introduction to other offers", value="You might also enjoy...", no_wrapper=True %}
+        </p>
+
+        <div class="typ-card__wrap">
+
+            <div class="typ-card">
+
+                <div class="{% if widget_data.typCard__photo.src %}typ-card__photo{% else %}typ-card__no-photo{% endif %}" {% if widget_data.typCard__photo.src %}style="background-image: url('{{ widget_data.typCard__photo.src }}')"{% endif %}>
+
+                    <p class="typ-card__type">
+                        {% text "typCard__type" label="Offer 1: Type", value="Webinar", no_wrapper=True %}
+                    </p>
+
+                </div>
+
+
+                <div class="typ-card__content">
+
+                    <p class="typ-card__title">
+                        {% text "typCard__title" label="Offer 1: Title", value="Exceptional Webinar", no_wrapper=True %}
+                    </p>
+
+                    <p class="typ-card__desc">
+                        {% text "typCard__desc" label="Offer 1: Description", value="Summarize the content of this offer and its value to your visitors.", no_wrapper=True %}
+                    </p>
+
+                </div>
+
+                <div class="typ-card__btn-wrap">
+                    <a href='{% text "typCard__offerUrl" label="Offer 1: Landing Page URL", value="#", no_wrapper=True %}' class="typ-card__btn">
+                        {% text "typCard__offerCTA" label="Offer 1: CTA copy", value="Register Now", no_wrapper=True %}
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="typ-card">
+
+                <div class="{% if widget_data.typCard__photo2.src %}typ-card__photo{% else %}typ-card__no-photo{% endif %}" {% if widget_data.typCard__photo2.src %}style="background-image: url('{{ widget_data.typCard__photo2.src }}')"{% endif %}>
+
+                    <p class="typ-card__type">
+                        {% text "typCard__type2" label="Offer 2: Type", value="Ebook", no_wrapper=True %}
+                    </p>
+
+                </div>
+
+
+                <div class="typ-card__content">
+
+                    <p class="typ-card__title">
+                        {% text "typCard__title2" label="Offer 2: Title", value="Best Ever Ebook", no_wrapper=True %}
+                    </p>
+
+                    <p class="typ-card__desc">
+                        {% text "typCard__desc2" label="Offer 2: Description", value="Summarize the content of this offer and its value to your visitors.", no_wrapper=True %}
+                    </p>
+
+                </div>
+
+                <div class="typ-card__btn-wrap">
+                    <a href="{% text "typCard__offerUrl2" label="Offer 2: Landing Page URL", value="#", no_wrapper=True %}" class="typ-card__btn">
+                        {% text "typCard__offerCTA2" label="Offer 2: CTA copy", value="Learn More", no_wrapper=True %}
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- {% boolean "offers_show" label='Show "Other Offers" section?', value=True, export_to_template_context=True %}
+
 {% text "typ__offers" label="Introduction to other offers", value="You might also enjoy...", export_to_template_context=True %}
 
 {% text "typCard__type" label="Offer 1: Type", value="Webinar", export_to_template_context=True %}
@@ -111,4 +197,4 @@
     </div>
 
 </div>
-{% endif %}
+{% endif %} -->

@@ -1,4 +1,72 @@
-{% text "lp__title" label="Main header", value="Enjoy your ebook!", export_to_template_context=True %}
+{% boolean "social_show" label='Show social sharing?', value=True, export_to_template_context=True %}
+{% text "lp__socialUrl" label="URL of your landing page (for social sharing, so don't use the URL of a thank-you page!)", value="http://www.hubspot.com", export_to_template_context=True %}
+
+<div class="typ__hero">
+    <h1 class="lp__title">
+        {% text "lp__title" label="Main header", value="Enjoy your ebook!", no_wrapper=True %}
+    </h1>
+
+    <p class="lp__tagline">
+        {% text "lp__tagline" label="Subheader", value="Thank your visitors for requesting the content offered on your landing page, and explain how they will receive the offer.", no_wrapper=True %}
+    </p>
+
+    <div class="typ__cta-wrap">
+
+        <a class="typ__cta" href='{% text "lp__ctaUrl1" label="URL for first CTA (usually a link to your offer)", value="#", no_wrapper=True %}' download>
+            {% text "lp__ctaCopy1" label="Copy for first CTA", value="Download your ebook now", no_wrapper=True %}
+        </a>
+
+        <a class="typ__cta" href='{% text "lp__ctaUrl2" label="URL for first CTA (usually a link to your offer)", value="#", no_wrapper=True %}'>
+            {% text "lp__ctaCopy2" label="Copy for second CTA", value="Return to the main site", no_wrapper=True %}
+        </a>
+
+    </div>
+
+    <div class="typ__social {% if widget_data.social_show.value == 'false' %}display-none{% endif %}">
+        <p class="typ__social-tag">
+            {% text "typ__socialTag" label="Label for social sharing section", value="Share with your network:", no_wrapper=True %}
+        </p>
+        <div class="social__wrap">
+            <a class="social__icon social__icon--facebook" rel="nofollow" href="http://www.facebook.com/" onclick="popUp=window.open(
+                    'http://www.facebook.com/sharer.php?u={{ widget_data.lp__socialUrl.value }}?utm_medium=social&amp;utm_source=facebook',
+                    'popupwindow',
+                    'scrollbars=yes,width=800,height=400');
+                popUp.focus();
+                return false">
+                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+            </a>
+
+            <a class="social__icon social__icon--twitter" rel="nofollow" href="http://twitter.com/" onclick="popUp=window.open(
+                    'http://twitter.com/intent/tweet?text={{ content.title }}&amp;url={{ widget_data.lp__socialUrl.value }}?utm_medium=social%26utm_source=twitter',
+                    'popupwindow',
+                    'scrollbars=yes,width=800,height=400');
+                popUp.focus();
+                return false">
+                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+            </a>
+
+            <a class="social__icon social__icon--linkedin" rel="nofollow" href="http://www.linkedin.com/" onclick="popUp=window.open(
+                    'http://www.linkedin.com/shareArticle?url={{ widget_data.lp__socialUrl.value }}?utm_medium=social&amp;utm_source=linkedin',
+                    'popupwindow',
+                    'scrollbars=yes,width=800,height=400');
+                popUp.focus();
+                return false">
+                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            </a>
+
+            <a class="social__icon social__icon--email" rel="nofollow" href="mailto:?subject={{ content.title }}&body={{ widget_data.lp__socialUrl.value }}?utm_medium=social&amp;utm_source=email">
+                <i class="fa fa-envelope-square" aria-hidden="true"></i>
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<!-- {% text "lp__title" label="Main header", value="Enjoy your ebook!", export_to_template_context=True %}
 
 {% text "lp__tagline" label="Subheader", value="Thank your visitors for requesting the content offered on your landing page, and explain how they will receive the offer.", export_to_template_context=True %}
 
@@ -11,7 +79,7 @@
 {% text "typ__socialTag" label="Label for social sharing section", value="Share with your network:", export_to_template_context=True %}
 
 {% boolean "social_show" label='Show social sharing?', value=True, export_to_template_context=True %}
-{% text "lp__socialUrl" label="URL of your landing page (for social sharing, so don't use the URL of a thank-you page!)", value="/your-landing-page", export_to_template_context=True %}
+{% text "lp__socialUrl" label="URL of your landing page (for social sharing, so don't use the URL of a thank-you page!)", value="http://www.hubspot.com", export_to_template_context=True %}
 
 
 <div class="typ__hero">
@@ -78,4 +146,4 @@
     </div>
     {% endif %}
 
-</div>
+</div> -->
