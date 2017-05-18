@@ -1,0 +1,121 @@
+form.hs-form .hs-form-required { // asterick for required fields
+    color: $error-color;
+    padding-left: 3px;
+}
+
+form.hs-form input,
+form.hs-form textarea,
+form.hs-form select {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    transition: .2s;
+    border: 1px solid $light-grey-border;
+    width: 100%;
+    @include border-radius(4px, 4px);
+}
+
+form.hs-form input[type="radio"],
+form.hs-form input[type="checkbox"] {
+    width: auto;
+    margin-right: 20px;
+}
+
+form.hs-form input,
+form.hs-form textarea,
+form.hs-form select,
+.hs-form-radio-display span,
+.hs-form-checkbox-display span,
+.hs-form-booleancheckbox-display span {
+    font-size: 16px;
+}
+
+form.hs-form input:focus,
+form.hs-form textarea:focus,
+form.hs-form select:focus {
+    outline: none;
+    border: 1px solid #000;
+}
+
+form.hs-form select {
+    @include appearance(none);
+}
+
+form.hs-form select:focus {
+    outline: none;
+}
+
+form.hs-form input[type="submit"] {
+    border: none;
+}
+
+form.hs-form .hs-form-field label {
+    padding-bottom: 10px;
+    display: block;
+}
+
+form.hs-form .hs-form-field label.hs-form-radio-display,
+form.hs-form .hs-form-field label.hs-form-checkbox-display {
+    padding-bottom: 0;
+}
+
+form.hs-form .hs_submit {
+    text-align: center;
+}
+
+form.hs-form .hs_submit .actions {
+    display: inline-block;
+}
+
+form.hs-form .hs_submit input {
+    @include button($highlight-color, $highlight-color, #fff);
+    margin-top: 15px; 
+}
+
+form.hs-form .hs-form-field {
+    padding: 10px 0;
+}
+
+form.hs-form fieldset {
+    max-width: 670px;
+    margin: 0 auto;
+}
+
+form.hs-form fieldset:first-child {
+    padding-top: 0;
+}
+
+form.hs-form fieldset:last-child {
+    padding-bottom: 0;
+}
+
+form.hs-form fieldset.form-columns-1 .hs-input {
+    width: 100%;
+}
+
+form.hs-form .hs-error-msgs.inputs-list {
+    margin: 0 0;
+    color: $error-color;
+    list-style-type: none;
+    padding: 5px 0 0 0;
+}
+
+form.hs-form .hs-error-msgs.inputs-list li {
+    margin: 0 0;
+}
+
+form.hs-form .hs-error-msgs.inputs-list label {
+    font-size: 14px;
+    padding: 0 0;
+}
+
+@media (max-width: 400px),
+(max-device-width: 480px) and (min-device-width: 320px) {
+    form.hs-form fieldset.form-columns-2 .hs-form-field .hs-input,
+    form.hs-form fieldset.form-columns-3 .hs-form-field .hs-input {
+        width: 100%;
+    }
+}
+
+form.hs-form .hs-error-msgs * {
+    color: $error-color;
+}

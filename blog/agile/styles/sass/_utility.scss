@@ -1,0 +1,28 @@
+.page-center {
+    max-width: 975px;
+    margin: 0 auto;
+    height: 100%;
+    @include display-flex;
+    @include flex-direction(column);
+    padding: 12px 20px;
+}
+
+*, *:before, *:after {
+    @include box-sizing(border-box);
+}
+
+
+body {
+    margin: 0;
+    border-top: none;
+}
+
+.hide-mobile {
+    @media (max-width: $break-mob) {
+    	display: none;
+    }
+}
+
+.display-none.display-none {
+    display: none;
+}
