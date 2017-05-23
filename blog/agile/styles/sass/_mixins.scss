@@ -1,4 +1,4 @@
-@mixin button($background, $border, $color) {
+@mixin button($background, $border, $color, $hoverbg:$color, $hovercolor:$background) {
     background: $background;
     color: $color;
     text-transform: uppercase;
@@ -13,8 +13,8 @@
     cursor: pointer;
 
     &:hover {
-        background: $color;
-        color: $background;
+        background: $hoverbg;
+        color: $hovercolor;
     }
 }
 

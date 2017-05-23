@@ -31,21 +31,48 @@
     color: $body-color;
 }
 
-.post__topic-link:not(:last-child):after {
-    content: ',';
-    color: $body-color;
-}
-
 .post__topics {
     @include smallFont;
     margin: 0 0;
 }
 
+.post__topic-link {
+    background: $bg-grey;
+    padding: 2px 10px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px 3px;
+    // color: $body-color;
+    @include smallFont;
+    @include transition(.3s all);
+
+    .fa-tag {
+        margin-right: 8px;
+    }
+
+    &:hover {
+        color: $body-color;
+    }
+}
+
+// .post__topic-link:not(:last-child):after {
+//     content: ',';
+//     color: $body-color;
+// }
+
 //
 .post {
     &:hover {
-        @include box-shadow(0 0 30px 0 rgba(0,0,0,0.25));
-    }
+        @include box-shadow(0 0 20px 0 rgba(0,0,0,0.2));
+
+        .post__cta {
+            opacity: 1;
+        }
+
+        .post__img-filter {
+            background: rgba(78, 38, 0, 0.4);
+        }
+    }  
 }
 
 // LAYOUT
@@ -64,14 +91,23 @@
     border: 1px solid $light-grey-border;
 }
 
-.post--featured .post__preview {
-    background: $bg-grey;
+// SPECIFIC STYLES FOR FEATURED POST
+.post--featured {
+    .post__preview {
+        // background: $bg-grey;
+        @include flex-basis(0);
+        @include flex-grow(2);
+    }
+    .post__img-wrap {
+        flex-basis: 0;
+        flex-grow: 1;
+    }
 }
 
 .post--recent-wrap {
     @include display-flex;
     @include align-items(stretch);
-    @include justify-content(center);
+    @include justify-content(space-between);
     flex-flow: row wrap;
 
     @media (max-width: $break-mob) {
@@ -87,10 +123,9 @@
     @include align-items(stretch);
     @include justify-content(center);
     @include flex-direction(column);
-    // padding: 0 10px;
-    // width: 50%;
-    width: 47%;
-    margin: 15px 10px;
+    width: 48%;
+    margin: 15px 0;
+    padding: 0;
     @include transition(.3s all);
 }
 
@@ -115,22 +150,24 @@
     padding: 20px 20px;
     text-decoration: none;
     position: relative;
+
+    &:hover {
+        .post__cta {
+            background: rgba(255,255,255,.2);
+        }
+    }
 }
 
 .post__cta {
-    @include button(transparent, #fff, #fff);
+    @include button(transparent, #fff, #fff, rgba(255,255,255,.2), #fff);
     position: relative; 
-}
-
-.post__img-wrap:hover .post__cta {
-    background: $highlight-color;
-    border-color: $highlight-color; // maybe this can be replaced by mixin?
+    opacity: 0;
+    @include transition(.3s all);
 }
 
 .post__img-filter {
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 0;
     left: 0;
@@ -146,7 +183,7 @@
     @include display-flex;
     @include align-items(center);
     @include justify-content(space-between);
-    padding: 0 0 5px 0;
+    padding: 0 0 7px 0;
 }
 
 .post__date {
@@ -162,6 +199,7 @@
     font-size: 22px;
     color: $grey-text;
     padding: 0 1px;
+    @include transition(.3s all);
 
     @media (max-width: $break-mob) {
         padding: 7px;
@@ -198,10 +236,19 @@
     @include flex-direction(column);
 }
 
+.post__preview--top {
+    width: 100%;
+}
+
 .post__tagline {
     padding: 10px 0 20px 0;
 }
 
+.post__author {
+    text-decoration: none;
+    font-weight: 600;
+    color: $body-color;
+}
 
 .post__author-img {
     margin-right: 20px;
@@ -224,26 +271,34 @@
 
 // MOBILE
 @media (max-width: $break-mob) {
-    .post {
-        padding: 0 0;
-    }
-    .post--featured {
-        display: block;
-    }
-    .post--featured .post__img-wrap {
-        height: 200px;
-    }
-    .post--featured .post__preview {
-        padding: 30px 20px 50px;
-    }
-    .post--recent {
-        display: block;
-        width: 100%;
-        // border: 1px solid $light-grey-border;
-    }
-    .post--featured,
-    .post--recent {
-        margin-bottom: 20px;
+    .listing--main {
+        .post {
+            padding: 0 0;
+        }
+        .post--featured {
+            display: block;
+        }
+        .post--featured .post__img-wrap {
+            height: 200px;
+        }
+        .post--featured .post__preview {
+            padding: 30px 20px 50px;
+        }
+        .post--recent {
+            display: block;
+            width: 100%;
+            // border: 1px solid $light-grey-border;
+        }
+        .post--featured,
+        .post--recent {
+            margin-bottom: 20px;
+        }
+        .post__cta {
+            opacity: 1;
+        }
+        .social__wrap {
+            display: none;
+        }
     }
 }
 
@@ -252,30 +307,41 @@
     @include display-flex;
     @include align-items(center);
     @include justify-content(space-between);
-    padding: 40px 0 60px 0
+    padding: 40px 0 60px 0;
+    width: 100%;
 }
 
 .pagination__first,
 .pagination__last,
 .pagination__item {
-    color: $highlight-color;
+    color: $grey-text;
+}
+
+// .pagination__first,
+// .pagination__last {
+//     min-width: 100px;
+// }
+
+.pagination__last {
+    text-align: right;
 }
 
 .pagination__item {
+    background: $bg-grey;
     font-family: $main-font;
     text-decoration: none;
-    padding: 10px 10px;
-    border: 1px solid $highlight-color;
-    border-radius: 4px;
+    padding: 8px 10px;
+    margin: 2px 3px;
+    // border: 1px solid $highlight-color;
+    // border-radius: 4px;
     min-width: 46px;
     text-align: center;
     display: inline-block;
-    @include transition(.3s all)
+    @include transition(.3s all);
 }
 
 .pagination__item--current,
 .pagination__item:hover {
-    background: $highlight-color;
-    color: #fff;
-    opacity: 1
+    color: $body-color;
+    opacity: 1;
 }

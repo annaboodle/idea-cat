@@ -1,0 +1,200 @@
+<div class="listing--main" itemscope itemtype="http://schema.org/Blog">
+
+    <meta itemprop="url" content="{{ parent_blog.absolute_url }}">
+    <meta itemprop="description" content="{{ parent_blog.description }}">
+
+    <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="{{ parent_blog.public_title }}">
+<!--         <span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+            <meta itemprop="url" content="https://www.twinehealth.com/hubfs/www/homepage/logo-twine-60x60.png">
+            <meta itemprop="height" content="328">
+            <meta itemprop="width" content="328">
+        </span> -->
+    </span>
+
+    <meta itemprop="mainEntityOfPage" itemtype="http://schema.org/URL" content="{{ parent_blog.absolute_url }}">
+
+{% for content in contents %}
+
+    {% if loop.index == 2 %}
+    <div class="post--recent-wrap">
+    {% endif %}
+
+    <div class="post {% if loop.index == 1 %}post--featured{% else %}post--recent{% endif %}" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <meta itemprop="url" content="{{ content.absolute_url }}">
+        <meta itemprop="description" content="{{ content.meta_description }}">
+<!--         <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+            <meta itemprop="url" content="https://cdn2.hubspot.net/hubfs/593396/pexels-photo.jpg">
+            <meta itemprop="height" content="333">
+            <meta itemprop="width" content="500">
+        </span> -->
+        <meta itemprop="dateModified" content="{{ content.publish_date_localized }}">
+        <meta itemprop="mainEntityOfPage" itemtype="http://schema.org/URL" content="{{ content.absolute_url }}">
+        <meta itemprop="headline" content="{{ content.name }}">
+        <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop="name" content="Twine Blog">
+<!--             <span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop="url" content="https://www.twinehealth.com/hubfs/www/homepage/logo-twine-60x60.png">
+                <meta itemprop="height" content="328">
+                <meta itemprop="width" content="328">
+            </span> -->
+        </span>
+
+        <a href="{{content.absolute_url}}" class="post__img-wrap" style="background-image: url('{{ content.post_list_summary_featured_image }}')">
+
+            <div class="post__img-filter"></div>
+
+            <div class="post__cta">Read More</div>
+
+        </a>
+
+        <div class="post__preview">
+
+            <div class="post__preview--top">
+
+                <div class="post__date-wrap">
+                    <span class="post__date" itemprop="datePublished">{{ content.publish_date_localized }}</span>
+                    <div class="social__wrap">
+                        <a class="social__icon social__icon--facebook" rel="nofollow" href="http://www.facebook.com/" onclick="popUp=window.open(
+                                'http://www.facebook.com/sharer.php?u={{content.absolute_url}}?utm_medium=social&amp;utm_source=facebook',
+                                'popupwindow',
+                                'scrollbars=yes,width=800,height=400');
+                            popUp.focus();
+                            return false">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                        </a>
+
+                        <a class="social__icon social__icon--twitter" rel="nofollow" href="http://twitter.com/" onclick="popUp=window.open(
+                                'http://twitter.com/intent/tweet?text={{ content.name }}&amp;url={{content.absolute_url}}?utm_medium=social%26utm_source=twitter',
+                                'popupwindow',
+                                'scrollbars=yes,width=800,height=400');
+                            popUp.focus();
+                            return false">
+                            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                        </a>
+
+                        <a class="social__icon social__icon--linkedin" rel="nofollow" href="http://www.linkedin.com/" onclick="popUp=window.open(
+                                'http://www.linkedin.com/shareArticle?url={{content.absolute_url}}?utm_medium=social&amp;utm_source=linkedin',
+                                'popupwindow',
+                                'scrollbars=yes,width=800,height=400');
+                            popUp.focus();
+                            return false">
+                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                        </a>
+
+                        <a class="social__icon social__icon--email" rel="nofollow" href="mailto:?subject={{ content.name }}&body={{content.absolute_url}}?utm_medium=social&amp;utm_source=email">
+                            <i class="fa fa-envelope-square" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <h3 class="post__title">
+                    <a class="post__title-link" href="{{content.absolute_url}}">{{ content.name }}</a>
+                </h3>
+
+                <div class="post__byline-wrap">
+                    <p class="post__byline">by <a class="post__author" href="{{ parent_blog.absolute_url }}/author/{{ content.blog_author.slug }}">
+                        <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                        <span itemprop="name">
+                            {{ content.blog_author.full_name }}
+                        </span>
+                        <meta itemprop="url" content="{{ parent_blog.absolute_url }}/author/{{ content.blog_author.slug }}">
+                        <meta itemprop="image" content="{{ content.blog_author.avatar }}"></span>
+                    </a>
+                    </p>
+                </div>
+
+                <div class="post__tagline">
+                    {{ content.post_list_content|safe }}
+                </div>
+            </div>
+
+            {% if content.topic_list %}
+            <p class="post__topics">
+                {% for topic in content.topic_list %}
+                <a class="post__topic-link" href="{{ group.absolute_url }}/topic/{{ topic.slug }}"><i class="fa fa-tag" aria-hidden="true"></i>{{ topic.name }}</a>
+                {% endfor %}
+            </p>
+            {% endif %}
+
+        </div>
+    </div>
+
+    {% if loop.last %}
+    </div>
+    {% endif %}
+
+{% endfor %}
+</div>
+
+{% set total_pages = contents.total_page_count %} 
+
+{% if total_pages > 1 %}
+<div class="pagination">
+
+    <a class="pagination__first" href="{{ blog_page_link(1) }}">‹‹ First</a>
+
+    <div class="pagination__num-wrap">
+
+        {% if current_page_num - 4 >= 1 && current_page_num == total_pages %}
+        <a class="pagination__item" href="{{ blog_page_link(current_page_num - 4) }}">
+            {{ current_page_num - 4 }}
+        </a>
+        {% endif %}
+
+        {% if current_page_num - 3 >= 1 && current_page_num >= total_pages - 1 %}
+        <a class="pagination__item" href="{{ blog_page_link(current_page_num - 3) }}">
+            {{ current_page_num - 3 }}
+        </a>
+        {% endif %}
+
+        {% if current_page_num - 2 >= 1 %}
+        <a class="pagination__item" href="{{ blog_page_link(current_page_num - 2) }}">
+            {{ current_page_num - 2 }}
+        </a>
+        {% endif %}
+
+        {% if current_page_num - 1 >= 1 %}
+        <a class="pagination__item" rel="prev" href="{{ blog_page_link(current_page_num - 1) }}">
+            {{ current_page_num - 1 }}
+        </a>
+        {% endif %}
+
+        <a class="pagination__item pagination__item--current" href="{{ blog_page_link(current_page_num) }}">
+            {{ current_page_num }}
+        </a>
+
+        {% if current_page_num + 1 <= total_pages %}
+        <a class="pagination__item" rel="next" href="{{ blog_page_link(current_page_num + 1) }}">
+            {{ current_page_num + 1 }}
+        </a>
+        {% endif %}
+
+        {% if current_page_num + 2 <= total_pages %}
+        <a class="pagination__item" href="{{ blog_page_link(current_page_num + 2) }}">
+            {{ current_page_num + 2 }}
+        </a>
+        {% endif %}
+
+        {% if current_page_num + 3 <= total_pages && current_page_num <= 2 %}
+        <a class="pagination__item" href="{{ blog_page_link(current_page_num + 3) }}">
+            {{ current_page_num + 3 }}
+        </a>
+        {% endif %}
+
+        {% if current_page_num + 4 <= total_pages && current_page_num == 1 %}
+        <a class="pagination__item" href="{{ blog_page_link(current_page_num + 4) }}">
+            {{ current_page_num + 4 }}
+        </a>
+        {% endif %}
+
+    </div>
+
+    <a class="pagination__last" href="{{ blog_page_link(total_pages) }}">Last ››</a>
+
+</div>
+{% endif %}
+
+
+
