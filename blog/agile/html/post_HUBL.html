@@ -1,0 +1,130 @@
+<!-- post start -->
+<div class="article--wrap">
+
+
+	<div class="article__header">
+
+		<div class="page-center">
+
+			<div class="article__header-inner">
+
+				<h1 class="article__title">{{ content.name }}</h1>
+
+				<div class="article__info">
+
+					<p class="article__attribution">
+						{% if content.blog_post_author %}
+						By 
+						<span class="article__author">
+							<a href="{{ group.absolute_url }}/author/{{ content.blog_post_author.slug }}">
+							{{ content.blog_post_author.display_name }}
+							</a>
+						</span>
+						 on 
+						{% endif %}
+						<span class="article__date">
+							{{ content.publish_date|datetimeformat('%B %e, %Y') }}
+						</span>
+					</p>
+
+					<div class="article__social">
+                        <a class="social__icon social__icon--facebook" rel="nofollow" href="http://www.facebook.com/" onclick="popUp=window.open(
+                                'http://www.facebook.com/sharer.php?u={{content.absolute_url}}?utm_medium=social&amp;utm_source=facebook',
+                                'popupwindow',
+                                'scrollbars=yes,width=800,height=400');
+                            popUp.focus();
+                            return false">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                        </a>
+
+                        <a class="social__icon social__icon--twitter" rel="nofollow" href="http://twitter.com/" onclick="popUp=window.open(
+                                'http://twitter.com/intent/tweet?text={{content.name|urlencode}}&amp;url={{content.absolute_url}}?utm_medium=social%26utm_source=twitter',
+                                'popupwindow',
+                                'scrollbars=yes,width=800,height=400');
+                            popUp.focus();
+                            return false">
+                            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                        </a>
+
+                        <a class="social__icon social__icon--linkedin" rel="nofollow" href="http://www.linkedin.com/" onclick="popUp=window.open(
+                                'http://www.linkedin.com/shareArticle?url={{content.absolute_url}}?utm_medium=social&amp;utm_source=linkedin',
+                                'popupwindow',
+                                'scrollbars=yes,width=800,height=400');
+                            popUp.focus();
+                            return false">
+                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                        </a>
+
+                        <a class="social__icon social__icon--email" rel="nofollow" href="mailto:?subject={{content.name|urlencode}}&body={{content.absolute_url}}?utm_medium=social&amp;utm_source=email">
+                            <i class="fa fa-envelope-square" aria-hidden="true"></i>
+                        </a>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div> <!-- end article header -->
+
+	{% if content.featured_image %}
+	<div class="article__feat-img" style="background-image:url('{{ content.featured_image }}')">
+
+	</div>
+	{% endif %}
+
+
+	<div class="page-center">
+
+		<div class="article__content">
+
+			{{ content.post_body }}
+
+		</div>
+
+
+		{% if content.topic_list %}
+		<p class="article__topics">
+
+			{% for topic in content.topic_list %}
+	        <a class="article__topic-link" href="{{ group.absolute_url }}/topic/{{ topic.slug }}"><i class="fa fa-tag" aria-hidden="true"></i>{{ topic.name }}</a>
+			{% endfor %}   
+
+		</p>
+		{% endif %}
+
+		{% if content.blog_post_author.avatar or content.blog_post_author.bio %}
+		<div class="article__bio">
+
+			{% if content.blog_post_author.avatar %}
+			<div class="article__bio-pic-wrap">
+				<img class="article__bio-pic" src="{{ content.blog_post_author.avatar }}" alt="{{ content.blog_post_author.display_name }}">
+			</div>
+			{% endif %}
+
+			<div class="article__bio-details">
+
+				{% if content.blog_post_author.display_name %}
+				<h4 class="article__bio-name">{{ content.blog_post_author.display_name }}</h4>	
+				{% endif %}
+
+				{% if content.blog_post_author.bio %}
+				<p class="article__bio-desc">
+					{{ content.blog_post_author.bio }}
+				</p>
+				{% endif %}
+
+				<a href="{{ group.absolute_url }}/author/{{ content.blog_post_author.slug }}">View all articles</a>
+
+			</div>
+
+		</div>
+		{% endif %}
+
+
+
+	</div>
+
+</div>
+<!-- post end -->

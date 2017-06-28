@@ -1,0 +1,103 @@
+.agile__hero {
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    @include box-shadow(0 0 20px 0 rgba(0,0,0,0.2));
+
+    h1 {
+        text-align: center;
+    }
+
+    .agile__header {
+        border-bottom: none;
+    }
+
+    // specific styles for the email subscribe form in hero
+    .form-title {
+        display: none;
+    }
+
+    form.hs-form {
+        @include display-flex;
+        @include align-items(stretch);
+        @include justify-content(center);
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px 0 0 0;
+
+        .hs-form-field {
+            width: 100%;
+
+            > label {
+                display: none;
+            }
+        }
+
+        .hs_submit,
+        .hs_submit .actions {
+            @include display-flex;
+        }
+
+        .hs_submit input,
+        input {
+            margin: 0 0;
+            line-height: 16px;
+            @include border-radius(0);
+            padding: 10px 30px;
+        }
+
+        .hs-error-msgs.inputs-list {
+            position: absolute;
+        }
+
+        .hs-form-field {
+            padding: 0 0;
+        }
+    }
+
+    &.agile__hero--dark-bg {
+
+        * {
+            color: #fff;
+        }
+
+        form.hs-form {
+            .hs_submit input {
+                background: rgba(255,255,255,.2);
+                // border: 2px solid yellow;
+
+                &:hover {
+                    background: #fff;
+                    color: $body-color;
+                }
+            }
+
+            input,
+            textarea,
+            select,
+            input:focus, 
+            textarea:focus, 
+            select:focus {
+                // border: 2px solid $light-grey-border;
+                border: 2px solid #fff;
+            }
+
+            .hs-error-msgs * {
+                color: #fff;
+            }
+        }
+    }
+
+    &.agile__hero--light-bg {
+
+        * {
+            color: $body-color;
+        }
+    }
+    // end hero form styles
+
+}
+
+.agile__hero--inner {
+    padding: 100px 0 180px 0;
+}

@@ -1,0 +1,29 @@
+{# 
+
+    Replace the URLs on lines 8-10 below to link to your company's own social media profiles!
+    Delete a URL (leaving two empty quotation marks) if you'd prefer to not have that icon appear on your site.
+
+#}
+
+{% set company_facebook_url = "http://www.facebook.com/hubspot" %}
+{% set company_twitter_url = "http://www.twitter.com/hubspot" %}
+{% set company_linkedin_url = "https://www.linkedin.com/company/hubspot" %}
+
+
+<div class="social__wrap">
+    {% if company_facebook_url != "" %}
+    <a class="social__icon social__icon--facebook" rel="nofollow" href="{{ company_facebook_url }}">
+        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+    </a>
+    {% endif }
+    {% if company_twitter_url != "" %}
+    <a class="social__icon social__icon--twitter" rel="nofollow" href="{{ company_twitter_url }}">
+        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+    </a>
+    {% endif %}
+    {% if company_linkedin_url != "" %}
+    <a class="social__icon social__icon--linkedin" rel="nofollow" href="{{ company_linkedin_url }}">
+        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+    </a>
+    {% endif %}
+</div>

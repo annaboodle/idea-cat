@@ -1,0 +1,109 @@
+// NAV BAR 
+.agile__header {
+    border-bottom: 1px solid $light-grey-border;
+}
+
+.agile__header--inner {
+    padding: 12px 20px;
+}
+
+.hs_cos_wrapper_type_logo {
+    img.hs-image-widget {
+        max-width: 150px;
+        padding: 5px 0;
+    }
+}
+
+.agile__top {
+    @include display-flex;
+    @include align-items(center);
+    @include justify-content(space-between);
+    padding: 0 0 30px 0;
+
+    @media (max-width: $break-mob) {
+        display: none;
+    }
+}
+
+.agile__header-widget {
+    width: 100% !important;
+}
+
+.agile__menu-icon,
+.agile__menu {
+    min-height: 0 !important;
+}
+
+.agile__menu {
+
+    ul {
+        float: right;
+        padding: 0 0 0 10px;
+        @include display-flex;
+
+        &.agile__menu--show {
+            padding: 15px 0;
+            width: 100%;
+            @include flex-basis(0);
+            @include flex-grow(1);
+            @include flex-direction(column);
+
+            @media (max-width: $break-mob) {
+                display: -webkit-flex !important;
+                display: flex !important;
+            }
+        }
+
+        @media (max-width: $break-mob) {
+            display: none !important;
+            padding: 0 0;
+        }
+
+        li {
+            text-align: center;
+        }
+    }
+
+    a {
+        font-family: $main-font;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-transform: uppercase;
+        color: $body-color;
+        display: inline-block;
+        text-align: center;
+        &:hover {
+            color: $highlight-color;
+        }
+    }
+}
+
+.agile__menu-icon {
+    display: none; 
+
+    @media (max-width: $break-mob) {
+        min-height: 0 !important;
+        display: inline-block;
+
+        .agile__menu-icon-lines-wrap {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding: 15px;
+        }
+
+        .agile__menu-icon-lines {
+            border-bottom: 16px double $highlight-color;
+            border-top: 5px solid $highlight-color;
+            content: "";
+            height: 5px;
+            width: 40px;
+            padding-right: 15px;
+            margin: 0px;
+            padding: 3px;
+            
+        }
+    }
+}    
+
