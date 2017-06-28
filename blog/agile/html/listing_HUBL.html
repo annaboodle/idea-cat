@@ -54,7 +54,7 @@
             <div class="post__preview--top">
 
                 <div class="post__date-wrap">
-                    <span class="post__date" itemprop="datePublished">{{ content.publish_date_localized }}</span>
+                    <span class="post__date" itemprop="datePublished">{{ content.publish_date|datetimeformat('%B %e, %Y') }}</span>
                     <div class="social__wrap">
                         <a class="social__icon social__icon--facebook" rel="nofollow" href="http://www.facebook.com/" onclick="popUp=window.open(
                                 'http://www.facebook.com/sharer.php?u={{content.absolute_url}}?utm_medium=social&amp;utm_source=facebook',
@@ -106,7 +106,7 @@
                 </div>
 
                 <div class="post__tagline">
-                    {{ content.post_list_content|safe }}
+                    {{ content.post_list_content|striptags }}
                 </div>
             </div>
 
@@ -192,6 +192,18 @@
     </div>
 
     <a class="pagination__last" href="{{ blog_page_link(total_pages) }}">Last ››</a>
+
+</div>
+
+<div class="pagination--mobile">
+
+    {% if current_page_num - 1 >= 1 %}
+        <a class="pagination__first" href="{{ blog_page_link(current_page_num - 1) }}">‹‹ Previous</a>
+    {% endif %}
+
+    {% if current_page_num + 1 <= total_pages %}
+        <a class="pagination__last" href="{{ blog_page_link(current_page_num + 1) }}">Next ››</a>
+    {% endif %}
 
 </div>
 {% endif %}

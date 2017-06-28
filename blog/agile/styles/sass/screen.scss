@@ -1,7 +1,4 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/css3";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
@@ -13,10 +10,15 @@
 @import "utility";
 
 @import "listing";
+@import "footer";
+@import "hero";
+@import "nav";
+@import "article";
 
-.hs_cos_wrapper_type_logo {
-	img.hs-image-widget {
-		max-width: 180px;
-		padding: 5px 0;
-	}
-}
+
+// .hs_cos_wrapper_type_logo {
+// 	img.hs-image-widget {
+// 		max-width: 180px;
+// 		padding: 5px 0;
+// 	}
+// }

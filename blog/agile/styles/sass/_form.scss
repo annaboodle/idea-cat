@@ -33,7 +33,7 @@ form.hs-form input:focus,
 form.hs-form textarea:focus,
 form.hs-form select:focus {
     outline: none;
-    border: 1px solid #000;
+    border: 1px solid $dark-grey-border;
 }
 
 form.hs-form select {
@@ -67,7 +67,8 @@ form.hs-form .hs_submit .actions {
 }
 
 form.hs-form .hs_submit input {
-    @include button($highlight-color, $highlight-color, #fff);
+    @include button($highlight-color, $highlight-color-dark, #fff, $highlight-color-dark, #fff);
+    //$background, $border, $color, $hoverbg:$color, $hovercolor:$background
     margin-top: 15px; 
 }
 

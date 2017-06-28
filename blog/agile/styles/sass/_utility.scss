@@ -17,6 +17,27 @@ body {
     border-top: none;
 }
 
+a {
+    @include transition(color, .3s);
+    color: $link-color;
+    &:hover {
+        color: $link-hover;       
+    }
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .hide-mobile {
     @media (max-width: $break-mob) {
     	display: none;
