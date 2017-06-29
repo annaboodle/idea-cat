@@ -101,22 +101,55 @@
 <div class="agile__menu-icon-lines">
 </div>
 </div>
+
+
+
+
 <script type="text/javascript">
-$(document).ready(function() {
-var $window = $(window);
-$('.agile__menu-icon-lines-wrap').click(function(){
-$('.agile__menu ul').toggleClass('agile__menu--show');
-});
-function checkWidth() {
-var windowsize = $window.width();
-if (windowsize > 767) {
-$('.typ__menu ul').removeClass('agile__menu--show');
-}
-}
-checkWidth();
-$(window).resize(checkWidth);
-});
-</script></span>
+    $(document).ready(function() {
+
+        var $window = $(window);
+
+        $('.agile__menu-icon-lines-wrap').click(function(){
+            $('.agile__menu ul').toggleClass('agile__menu--hide');
+
+            if ($('.agile__menu ul').hasClass("agile__menu--hide")) {
+                $('.agile__menu ul').slideUp();
+            }
+            else {
+                $('.agile__menu ul').slideDown();
+            }
+
+        });
+
+        function checkWidth() {
+            var windowsize = $window.width();
+            
+            if (windowsize <= 767) {
+                $('.agile__menu ul').addClass('agile__menu--hide');
+                $('.agile__menu ul').hide();
+
+            }
+            else {
+                $('.agile__menu ul').removeClass('agile__menu--hide');
+            }
+
+        }
+
+        checkWidth();
+
+        $(window).resize(checkWidth);
+
+    });
+</script>
+
+
+
+
+
+
+
+</span>
 </div><!--end layout-widget-wrapper -->
 </div><!--end widget-span -->
 </div><!--end row-->

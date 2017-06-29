@@ -1,7 +1,7 @@
 // FOOTER 
 .agile__footer {
     background: $bg-grey;
-    border-top: 2px solid $light-grey-border;
+    border-top: 1px solid $light-grey-border;
     padding: 80px 0 40px 0;
 
     h4 {
@@ -30,6 +30,19 @@
             padding-top: 50px;
         } 
     }
+
+
+    @media (max-width: $break-mob) {
+        padding: 20px 0 40px 0;
+
+        .social__wrap {
+            text-align: center;
+        }
+
+        .social__icon {
+            font-size: 27px;
+        }
+    }
 }
 
 .agile__footer--copyright {
@@ -38,5 +51,9 @@
     text-align: center;
     @include smallFont;
     color: $body-color;
+
+    @media (max-width: $break-mob) {
+        padding: 60px 0 0 0;
+    }
 }
 

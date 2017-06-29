@@ -1,3 +1,5 @@
+$img-filter: rgba(78, 62, 0, 0.4);
+
 /////////////////////////////////////////////////////////////////////////////////////
 // TYPOGRAPHY
 /////////////////////////////////////////////////////////////////////////////////////
@@ -70,7 +72,7 @@
         }
 
         .post__img-filter {
-            background: rgba(78, 38, 0, 0.4);
+            background: $img-filter;
         }
     }  
 }
@@ -79,14 +81,10 @@
 /////////////////////////////////////////////////////////////////////////////////////
 // LAYOUT
 /////////////////////////////////////////////////////////////////////////////////////
-// .agile__body-wrap {
-//     padding: 60px 0;
-// }
-
 .listing--main {
     position: relative;
     z-index: 2;
-    padding: 60px 0 0 0;
+    padding: 60px 0 30px 0;
 }
 
 .post--featured {
@@ -296,6 +294,9 @@
         .social__wrap {
             display: none;
         }
+        .post__img-filter {
+            background: $img-filter;
+        }
     }
 }
 
@@ -307,7 +308,7 @@
     @include display-flex;
     @include align-items(center);
     @include justify-content(space-between);
-    padding: 40px 0 60px 0;
+    padding: 10px 0 60px 0;
     width: 100%;
 
     @media (max-width: $break-mob) {

@@ -37,26 +37,29 @@
 .agile__menu {
 
     ul {
-        float: right;
         padding: 0 0 0 10px;
-        @include display-flex;
+        width: 100%;
+        margin: 0 0;
 
-        &.agile__menu--show {
+        @include align-items(center);
+        @include justify-content(flex-end);
+
+        @media (min-width: $break-mob + 1) {
+            display: -webkit-flex !important;
+            display: flex !important;
+        }
+
+        @media (max-width: $break-mob) {
+            display: none;
+            // background: rgba(255,255,255,.9);
+            // border: 1px solid $light-grey-border;
+            margin: 20px 0 0 0;
             padding: 15px 0;
             width: 100%;
             @include flex-basis(0);
             @include flex-grow(1);
             @include flex-direction(column);
-
-            @media (max-width: $break-mob) {
-                display: -webkit-flex !important;
-                display: flex !important;
-            }
-        }
-
-        @media (max-width: $break-mob) {
-            display: none !important;
-            padding: 0 0;
+            float: none;
         }
 
         li {
@@ -90,7 +93,7 @@
             position: absolute;
             top: 0px;
             right: 0px;
-            padding: 15px;
+            padding: 25px 25px 20px 50px;
         }
 
         .agile__menu-icon-lines {

@@ -38,7 +38,7 @@
                         </a>
 
                         <a class="social__icon social__icon--twitter" rel="nofollow" href="http://twitter.com/" onclick="popUp=window.open(
-                                'http://twitter.com/intent/tweet?text={{content.name|urlencode}}&amp;url={{content.absolute_url}}?utm_medium=social%26utm_source=twitter',
+                                'http://twitter.com/intent/tweet?text={{content.page_title|urlencode}}&amp;url={{content.absolute_url}}?utm_medium=social%26utm_source=twitter',
                                 'popupwindow',
                                 'scrollbars=yes,width=800,height=400');
                             popUp.focus();
@@ -55,7 +55,7 @@
                             <i class="fa fa-linkedin-square" aria-hidden="true"></i>
                         </a>
 
-                        <a class="social__icon social__icon--email" rel="nofollow" href="mailto:?subject={{content.name|urlencode}}&body={{content.absolute_url}}?utm_medium=social&amp;utm_source=email">
+                        <a class="social__icon social__icon--email" rel="nofollow" href="mailto:?subject={{content.page_title|urlencode}}&body={{content.absolute_url}}?utm_medium=social&amp;utm_source=email">
                             <i class="fa fa-envelope-square" aria-hidden="true"></i>
                         </a>
 					</div>

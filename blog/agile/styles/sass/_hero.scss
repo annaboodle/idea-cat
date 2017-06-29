@@ -2,6 +2,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
+    background-position: center center;
     @include box-shadow(0 0 20px 0 rgba(0,0,0,0.2));
 
     h1 {
@@ -15,6 +16,16 @@
     // specific styles for the email subscribe form in hero
     .form-title {
         display: none;
+    }
+
+    .agile__menu {
+        ul {
+            @media (max-width: $break-mob) {
+                background: rgba(255,255,255,.9);
+                border: 1px solid $light-grey-border;
+                margin: 20px 0 0 0;
+            }
+        }
     }
 
     form.hs-form {
@@ -47,11 +58,25 @@
         }
 
         .hs-error-msgs.inputs-list {
-            position: absolute;
+            padding: 5px 0;
+
+            @media (min-width: $break-mob + 1) {
+                position: absolute;
+            }
         }
 
         .hs-form-field {
             padding: 0 0;
+        }
+
+        @media (max-width: $break-mob) {
+            flex-direction: column;
+
+            .hs_submit,
+            .hs_submit .actions {
+                width: 100%;
+                height: 44px;
+            }
         }
     }
 
@@ -64,7 +89,6 @@
         form.hs-form {
             .hs_submit input {
                 background: rgba(255,255,255,.2);
-                // border: 2px solid yellow;
 
                 &:hover {
                     background: #fff;
@@ -78,13 +102,16 @@
             input:focus, 
             textarea:focus, 
             select:focus {
-                // border: 2px solid $light-grey-border;
-                border: 2px solid #fff;
+                border: 1px solid #fff;
             }
 
             .hs-error-msgs * {
                 color: #fff;
             }
+        }
+
+        .hs-menu-wrapper.hs-menu-flow-horizontal>ul li a {
+            color: $body-color;
         }
     }
 
@@ -100,4 +127,8 @@
 
 .agile__hero--inner {
     padding: 100px 0 180px 0;
+
+    @media (max-width: $break-mob) {
+        padding: 70px 0 100px;
+    }
 }
