@@ -1,5 +1,5 @@
 // borders
-$dark-grey-border: #879498; // border around form, form fields, under nav, etc
+$dark-grey-border: #879498;  // border around form, form fields, under nav, etc
 $light-grey-border: #dee1e2;
 
 // backgrounds
@@ -12,11 +12,13 @@ $error-color: #fc1111; // red
 $grey-text: #808285; 
 $body-color: #384146; //#292f33;
 $link-color: #619cdc;
-$link-hover: #619cdc;
+$link-hover: #427dbd;
 
 // highlight colors
-$highlight-color: #ff9d00; // orange
-$highlight-color-dark: #ea9000; // darker orange
+
+
+$highlight-color: $link-color; // #ff9d00;  orange
+$highlight-color-dark: $link-hover; // #ea9000;  darker orange
 
 // fonts
 $main-font: 'Open Sans', sans-serif;
@@ -29,3 +31,6 @@ $mail-red: #d34836;
 
 // breakpoints
 $break-mob: 767px;
+
+// filter over listing header image and post hover
+$img-filter: rgba(31, 68, 142, 0.37) // rgba(78, 62, 0, 0.4); orange

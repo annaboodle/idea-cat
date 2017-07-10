@@ -20,24 +20,19 @@
 }
 
 .article__author a {
-    // @include smallFont;
     text-decoration: none;
     font-weight: 600;
-    color: $link-color;
 }
 
 .article__attribution,
 .article__social {
-	// @include flex-basis(0);
 }
 
 .article__attribution {
-	// @include flex-grow(1);
 	margin: 0 0;
 }
 
 .article__social {
-	// @include flex-grow(1);
     text-align: right;
 
     .social__icon {
@@ -60,13 +55,39 @@
 
 
 
+.article__subscribe-bar {
+	background: $bg-grey;
+    padding: 5px;
+    border-top: 1px solid $light-grey-border;
+    border-bottom: 1px solid $light-grey-border;
+}
+
+.article__home-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: $break-mob) {
+        padding: 0 0 10px 0;
+    }
+
+    a {
+	    text-decoration: none;
+    }
+}
+
+// styles for the subscribe form can be found in _form.scss
+
+
+
+
 .article__feat-img {
 	height: 400px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     overflow: hidden;
-    @include box-shadow(0 0 20px 0 rgba(0,0,0,0.2));
+    @include box-shadow(0 15px 20px -13px rgba(0, 0, 0, 0.15));
 
     @media (max-width: $break-mob) {
 	    height: 250px;
@@ -82,6 +103,39 @@
     img {
 		padding: 20px 0;
     }
+
+	blockquote {
+		position: relative;
+		padding: 30px 0 0 0;
+		margin: 40px 0;
+
+		* {
+			font-size: 30px;
+			font-weight: 600;
+			text-align: center;
+			display: inline-block;
+		}
+
+		&:before,
+		&:after {
+			content: "";
+			width: 100%;
+			display: inline-block;
+			position: absolute;
+		}
+
+		&:before {
+			border-top: 1px solid $light-grey-border;
+			top: 0;
+			left: 0;
+		}
+
+		&:after {
+			border-bottom: 1px solid $light-grey-border;
+			bottom: 0;
+			left: 0;
+		}
+	}
 }
 
 
@@ -109,6 +163,7 @@
 
 .article__bio-pic-wrap {
 	padding-right: 60px;
+	min-width: 140px;
 
 	@media (max-width: $break-mob) {
         padding: 0 0;
@@ -121,15 +176,12 @@
 }
 
 .article__bio-details {
-    // padding: 0 0 0 60px;
-
 	@media (max-width: $break-mob) {
         padding: 30px 0 0 0;
     }
 }
 
 .article__bio-name {
-    // font-size: 20px;
     margin: 0 0 20px 0;
 }
 
@@ -207,15 +259,3 @@
 
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-

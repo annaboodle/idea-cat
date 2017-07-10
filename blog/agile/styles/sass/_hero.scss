@@ -1,9 +1,28 @@
+// styles for the subscribe form can be found in _form.scss
+
 .agile__hero {
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
     background-position: center center;
     @include box-shadow(0 0 20px 0 rgba(0,0,0,0.2));
+    text-align: center;
+    position: relative;
+
+    .agile__hero-body {
+        z-index: 1;
+        position: relative;
+    }
+
+    .agile__hero-filter {
+        background: $img-filter;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
 
     h1 {
         text-align: center;
@@ -11,11 +30,6 @@
 
     .agile__header {
         border-bottom: none;
-    }
-
-    // specific styles for the email subscribe form in hero
-    .form-title {
-        display: none;
     }
 
     .agile__menu {
@@ -28,62 +42,21 @@
         }
     }
 
-    form.hs-form {
-        @include display-flex;
-        @include align-items(stretch);
-        @include justify-content(center);
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px 0 0 0;
-
-        .hs-form-field {
-            width: 100%;
-
-            > label {
-                display: none;
-            }
-        }
-
-        .hs_submit,
-        .hs_submit .actions {
-            @include display-flex;
-        }
-
-        .hs_submit input,
-        input {
-            margin: 0 0;
-            line-height: 16px;
-            @include border-radius(0);
-            padding: 10px 30px;
-        }
-
-        .hs-error-msgs.inputs-list {
-            padding: 5px 0;
-
-            @media (min-width: $break-mob + 1) {
-                position: absolute;
-            }
-        }
-
-        .hs-form-field {
-            padding: 0 0;
-        }
-
-        @media (max-width: $break-mob) {
-            flex-direction: column;
-
-            .hs_submit,
-            .hs_submit .actions {
-                width: 100%;
-                height: 44px;
-            }
-        }
-    }
-
     &.agile__hero--dark-bg {
 
         * {
             color: #fff;
+        }
+
+        .agile__menu ul {
+            background: transparent;
+        }
+
+        @media (max-width: $break-mob) {
+            .agile__menu-icon .agile__menu-icon-lines {
+                border-bottom: 16px double #fff;
+                border-top: 5px solid #fff;
+            }
         }
 
         form.hs-form {
@@ -103,15 +76,25 @@
             textarea:focus, 
             select:focus {
                 border: 1px solid #fff;
+                background: rgba(255, 255, 255, 0);
             }
 
-            .hs-error-msgs * {
+            .hs-error-msgs * { /* Firefox 18- */
                 color: #fff;
             }
-        }
 
-        .hs-menu-wrapper.hs-menu-flow-horizontal>ul li a {
-            color: $body-color;
+            ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+                color: rgba(255, 255, 255, .75);
+            }
+            ::-moz-placeholder { /* Firefox 19+ */
+                color: rgba(255, 255, 255, .75);
+            }
+            :-ms-input-placeholder { /* IE 10+ */
+                color: rgba(255, 255, 255, .75);
+            }
+            :-moz-placeholder { /* Firefox 18- */
+                color: rgba(255, 255, 255, .75);
+            }
         }
     }
 
@@ -121,8 +104,6 @@
             color: $body-color;
         }
     }
-    // end hero form styles
-
 }
 
 .agile__hero--inner {

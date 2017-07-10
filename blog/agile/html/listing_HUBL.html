@@ -5,11 +5,6 @@
 
     <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
         <meta itemprop="name" content="{{ parent_blog.public_title }}">
-<!--         <span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-            <meta itemprop="url" content="https://www.twinehealth.com/hubfs/www/homepage/logo-twine-60x60.png">
-            <meta itemprop="height" content="328">
-            <meta itemprop="width" content="328">
-        </span> -->
     </span>
 
     <meta itemprop="mainEntityOfPage" itemtype="http://schema.org/URL" content="{{ parent_blog.absolute_url }}">
@@ -24,21 +19,11 @@
 
         <meta itemprop="url" content="{{ content.absolute_url }}">
         <meta itemprop="description" content="{{ content.meta_description }}">
-<!--         <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-            <meta itemprop="url" content="https://cdn2.hubspot.net/hubfs/593396/pexels-photo.jpg">
-            <meta itemprop="height" content="333">
-            <meta itemprop="width" content="500">
-        </span> -->
         <meta itemprop="dateModified" content="{{ content.publish_date_localized }}">
         <meta itemprop="mainEntityOfPage" itemtype="http://schema.org/URL" content="{{ content.absolute_url }}">
         <meta itemprop="headline" content="{{ content.name }}">
         <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
             <meta itemprop="name" content="Twine Blog">
-<!--             <span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-                <meta itemprop="url" content="https://www.twinehealth.com/hubfs/www/homepage/logo-twine-60x60.png">
-                <meta itemprop="height" content="328">
-                <meta itemprop="width" content="328">
-            </span> -->
         </span>
 
         <a href="{{content.absolute_url}}" class="post__img-wrap" style="background-image: url('{{ content.post_list_summary_featured_image }}')">
@@ -66,7 +51,7 @@
                         </a>
 
                         <a class="social__icon social__icon--twitter" rel="nofollow" href="http://twitter.com/" onclick="popUp=window.open(
-                                'http://twitter.com/intent/tweet?text={{ content.name }}&amp;url={{content.absolute_url}}?utm_medium=social%26utm_source=twitter',
+                                'http://twitter.com/intent/tweet?text={{ content.name|urlencode }}&amp;url={{content.absolute_url}}?utm_medium=social%26utm_source=twitter',
                                 'popupwindow',
                                 'scrollbars=yes,width=800,height=400');
                             popUp.focus();
@@ -83,7 +68,7 @@
                             <i class="fa fa-linkedin-square" aria-hidden="true"></i>
                         </a>
 
-                        <a class="social__icon social__icon--email" rel="nofollow" href="mailto:?subject={{ content.name }}&body={{content.absolute_url}}?utm_medium=social&amp;utm_source=email">
+                        <a class="social__icon social__icon--email" rel="nofollow" href="mailto:?subject={{ content.name|urlencode }}&body={{content.absolute_url}}?utm_medium=social&amp;utm_source=email">
                             <i class="fa fa-envelope-square" aria-hidden="true"></i>
                         </a>
                     </div>

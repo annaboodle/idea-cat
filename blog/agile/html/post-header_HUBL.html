@@ -1,0 +1,79 @@
+<!-- 
+POST HEADER
+-->
+<div class="article__header">
+
+	<div class="page-center">
+
+		<div class="article__header-inner">
+
+			<h1 class="article__title">{{ content.name }}</h1>
+
+			<div class="article__info">
+
+				<p class="article__attribution">
+					{% if content.blog_post_author %}
+					By 
+					<span class="article__author">
+						<a href="{{ group.absolute_url }}/author/{{ content.blog_post_author.slug }}">
+						{{ content.blog_post_author.display_name }}
+						</a>
+					</span>
+					 on 
+					{% endif %}
+					<span class="article__date">
+						{{ content.publish_date|datetimeformat('%B %e, %Y') }}
+					</span>
+				</p>
+
+				<div class="article__social">
+                    <a class="social__icon social__icon--facebook" rel="nofollow" href="http://www.facebook.com/" onclick="popUp=window.open(
+                            'http://www.facebook.com/sharer.php?u={{content.absolute_url}}?utm_medium=social&amp;utm_source=facebook',
+                            'popupwindow',
+                            'scrollbars=yes,width=800,height=400');
+                        popUp.focus();
+                        return false">
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="social__icon social__icon--twitter" rel="nofollow" href="http://twitter.com/" onclick="popUp=window.open(
+                            'http://twitter.com/intent/tweet?text={{content.name|urlencode}}&amp;url={{content.absolute_url}}?utm_medium=social%26utm_source=twitter',
+                            'popupwindow',
+                            'scrollbars=yes,width=800,height=400');
+                        popUp.focus();
+                        return false">
+                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="social__icon social__icon--linkedin" rel="nofollow" href="http://www.linkedin.com/" onclick="popUp=window.open(
+                            'http://www.linkedin.com/shareArticle?url={{content.absolute_url}}?utm_medium=social&amp;utm_source=linkedin',
+                            'popupwindow',
+                            'scrollbars=yes,width=800,height=400');
+                        popUp.focus();
+                        return false">
+                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="social__icon social__icon--email" rel="nofollow" href="mailto:?subject={{content.name|urlencode}}&body={{content.absolute_url}}?utm_medium=social&amp;utm_source=email">
+                        <i class="fa fa-envelope-square" aria-hidden="true"></i>
+                    </a>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div> <!-- end article header -->
+
+
+<!-- 
+LINK BACK TO MAIN BLOG 
+-->
+<span class="article__home-link">
+	<a href="{{ content.parent_blog.absolute_url }}">‹‹ Back to blog home</a>
+</span>
+
+
+
